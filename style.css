@@ -19,6 +19,7 @@
   --fs-4xlg: 24px;
   --warp-selected-background: #e7e7e7;
   --upload-border: #2c2c2c;
+  --like-btn-bg: rgb(233, 9, 9);
 }
 
 [data-theme="dark"] {
@@ -420,7 +421,7 @@ a {
   margin-left: 10px;
 }
 
-.ch-dino {
+.ch-data {
   display: flex;
   width: 100%;
   align-items: center;
@@ -460,6 +461,34 @@ a {
   /* position: absolute; */
   /* margin: 25px 30px 0px 0px; */
   user-select: none;
+}
+
+.vote-group {
+  display: flex;
+  direction: ltr;
+  height: 30px;
+  width: 50px;
+}
+
+.like {
+  flex: 1;
+
+
+}
+
+.btn-like {
+  border: none;
+  background: none;
+}
+
+.btn-like.active svg path {
+  fill: #ff0000;
+  stroke: #ff0000;
+}
+
+.likenumber {
+  text-align: center;
+  flex: 1;
 }
 
 /* upload-page */
