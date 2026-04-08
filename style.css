@@ -20,6 +20,9 @@
   --warp-selected-background: #e7e7e7;
   --upload-border: #2c2c2c;
   --like-btn-bg: rgb(233, 9, 9);
+  --scrollbar-bg:linear-gradient(#9a9a9a,#5c5c5c);
+  --scrollbar-track:#2c2c2c ;
+   --scrollbar-hover:#a5a9b3;
 }
 
 [data-theme="dark"] {
@@ -63,6 +66,22 @@
 @font-face {
   font-family: "Pinar";
   src: url("./public/fonts/Pinar-VF.woff2") format("woff2");
+}
+body::-webkit-scrollbar{
+  background: WHITE ;
+  width: 8px;
+ 
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background:var(--scrollbar-bg);
+    border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background:var(--scrollbar-hover);
 }
 
 body {
