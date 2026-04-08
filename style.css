@@ -463,6 +463,26 @@ a {
   user-select: none;
 }
 
+.btn-chengename {
+  background: none;
+  border: none;
+
+}
+
+.chengename-svg {
+  transform: scale(80%);
+}
+
+.chengename-svg path {
+  opacity: 60%;
+
+}
+
+.chengename-svg:hover path {
+
+  opacity: 100%;
+}
+
 .vote-group {
   display: flex;
   direction: ltr;
@@ -479,6 +499,7 @@ a {
 .btn-like {
   border: none;
   background: none;
+  user-select: none;
 }
 
 .btn-like.active svg path {
@@ -494,6 +515,7 @@ a {
 
 /* upload-page */
 .upload-main {
+  user-select: none;
   margin: 50px 0px 0px 0px;
   text-align: center;
   justify-content: center;
