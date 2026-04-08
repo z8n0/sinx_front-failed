@@ -487,6 +487,7 @@ a {
 }
 
 .likenumber {
+  user-select: none;
   text-align: center;
   flex: 1;
 }
