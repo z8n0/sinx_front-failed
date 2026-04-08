@@ -1,250 +1,243 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-            content="width=device-width,initial-scale=1,maximum-scale=5">
-        <title>sinx</title>
-        <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('fs');if(f)document.documentElement.setAttribute('data-fs',f)}catch(e){}</script>
-        <link rel="stylesheet" href="style.css">
-        <body>
-            <div class="topbar">
-                <div class="home-warp">
-                    <button class="warp-btn" onclick="togglePanel()"
-                        aria-label="تنظیمات">
-                        <svg version="1.1" id="Layer_1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                            y="0px"
-                            width="24px" height="24px" viewBox="0 0 24 24"
-                            enable-background="new 0 0 24 24"
-                            xml:space="preserve">
-                            <g>
-                                <circle fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" cx="20.0253"
-                                    cy="11.0014" r="1.1571" />
-                                <path fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" d="M15.2287,9.5002
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=5"
+    />
+    <title>sinx</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="home-warp">
+        <button
+          class="warp-btn warp-btn-selected"
+          onclick="togglePanel()"
+          aria-label="تنظیمات"
+        >
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            enable-background="new 0 0 24 24"
+            xml:space="preserve"
+          >
+            <g>
+              <circle
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                cx="20.0253"
+                cy="11.0014"
+                r="1.1571"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.2287,9.5002
 		c0.7178,0,1.2576,0.5812,1.2576,1.2979v9.308c0,0.717-0.5399,1.3941-1.2576,1.3941H3.7848c-0.717,0-1.2984-0.6771-1.2984-1.3941
-		v-9.308c0-0.7167,0.5814-1.2979,1.2984-1.2979H15.2287z" />
-                                <path fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" d="M21.6813,7.5002
+		v-9.308c0-0.7167,0.5814-1.2979,1.2984-1.2979H15.2287z"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21.6813,7.5002
 		c0.9797,0,1.8051,0.7373,1.8051,1.7155v12.349c0,0.9787-0.8254,1.9355-1.8051,1.9355H2.3439c-0.9787,0-1.8576-0.9568-1.8576-1.9355
-		V9.2157c0-0.9782,0.8788-1.7155,1.8576-1.7155H21.6813z" />
-                                <polyline fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    points="7.9174,2.4199 11.8668,7.5002 
-		15.8159,2.4199 	" />
-                                <circle fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" cx="16.4181"
-                                    cy="1.6452" r="0.9852" />
-                                <circle fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round" cx="7.3153"
-                                    cy="1.6452" r="0.9852" />
-                            </g>
-                            <rect x="-0.0136" y="0.0002" fill="none" width="24"
-                                height="24" />
-                        </svg>
-
-                    </button>
-                </div>
-                <div class="upload-warp">
-                    <button class="warp-btn" onclick="togglePanel()"
-                        aria-label="اپلود">
-                        <svg version="1.1" id="Layer_1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                            y="0px"
-                            width="24px" height="24px" viewBox="0 0 24 24"
-                            enable-background="new 0 0 24 24"
-                            xml:space="preserve">
-                            <g>
-
-                                <line fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-miterlimit="10" x1="11.5354"
-                                    y1="9.5268" x2="11.5354" y2="20.4983" />
-                                <polyline fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-miterlimit="10" points="
-		8.5893,12.5789 11.5354,9.5268 14.4816,12.5789 	" />
-                                <path fill="none" stroke="currentColor"
-                                    stroke-width="1.8"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-miterlimit="10" d="M15.0384,15.5172
+		V9.2157c0-0.9782,0.8788-1.7155,1.8576-1.7155H21.6813z"
+              />
+              <polyline
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                points="7.9174,2.4199 11.8668,7.5002 
+		15.8159,2.4199 	"
+              />
+              <circle
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                cx="16.4181"
+                cy="1.6452"
+                r="0.9852"
+              />
+              <circle
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                cx="7.3153"
+                cy="1.6452"
+                r="0.9852"
+              />
+            </g>
+            <rect x="-0.0136" y="0.0002" fill="none" width="24" height="24" />
+          </svg>
+        </button>
+      </div>
+      <div class="upload-warp">
+        <button
+          class="warp-btn warp-btn-redirectable"
+          onclick="togglePanel()"
+          aria-label="اپلود"
+        >
+          <svg
+            version="1.1"
+            id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="24px"
+            height="24px"
+            viewBox="0 0 24 24"
+            enable-background="new 0 0 24 24"
+            xml:space="preserve"
+          >
+            <g>
+              <line
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                x1="11.5354"
+                y1="9.5268"
+                x2="11.5354"
+                y2="20.4983"
+              />
+              <polyline
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                points="
+		8.5893,12.5789 11.5354,9.5268 14.4816,12.5789 	"
+              />
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-miterlimit="10"
+                d="M15.0384,15.5172
 		h3.544c2.4744,0,4.5648-1.9272,4.5648-4.2072c0-2.3529-2.2614-4.455-5.0856-4.1823c-0.6043-1.9528-2.5065-3.4603-5.2151-3.1268
-		C9.227,0.9718,3.8102,3.0234,3.0224,7.7764c-4.0801,2.5007-1.9489,7.7408,2.1508,7.7408h2.8113" />
-                            </g>
-                            <rect x="0" y="0.0001" fill="none" width="24"
-                                height="24" />
-                        </svg>
-
-                    </button>
-
-                </div>
-                <div class="settings-wrap">
-                    <button class="warp-btn" onclick="togglePanel()"
-                        aria-label="تنظیمات">
-                        <svg fill="none" stroke="currentColor"
-                            stroke-width="1.8" viewBox="0 0 24 24"><path
-                                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" /><circle
-                                cx="12" cy="12" r="3" /></svg>
-                    </button>
-                    <div class="panel-setting" id="sp">
-                        <div class="row">
-                            <div class="user">
-                                <img class="user-av"
-                                    src="./files/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
-                                    alt>
-                                <span class="user-nm">ruxa</span>
-                            </div>
-
-                            <div class="opts" id="theme-opts">
-                                <button onclick="setT('light')"
-                                    aria-label="روشن">
-                                    <svg fill="none" stroke="currentColor"
-                                        stroke-width="2"
-                                        viewBox="0 0 24 24"><circle cx="12"
-                                            cy="12" r="5" /><path
-                                            d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.73 12.73 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg></button>
-                                <button onclick="setT('dark')"
-                                    aria-label="تاریک"><svg fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        viewBox="0 0 24 24"><path
-                                            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg></button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+		C9.227,0.9718,3.8102,3.0234,3.0224,7.7764c-4.0801,2.5007-1.9489,7.7408,2.1508,7.7408h2.8113"
+              />
+            </g>
+            <rect x="0" y="0.0001" fill="none" width="24" height="24" />
+          </svg>
+        </button>
+      </div>
+      <div class="settings-wrap">
+        <button
+          class="warp-btn warp-btn-redirectable"
+          onclick="togglePanel()"
+          aria-label="تنظیمات"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+            />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
+        <div class="panel-setting" id="sp">
+          <div class="row">
+            <div class="user">
+              <img
+                class="user-av"
+                src="./public/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+                alt
+              />
+              <span class="user-nm">ruxa</span>
             </div>
 
-            <div class="feed">
+            <div class="opts" id="theme-opts">
+              <button onclick="setT('light')" aria-label="روشن">
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.73 12.73 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+                  />
+                </svg>
+              </button>
+              <button onclick="setT('dark')" aria-label="تاریک">
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feed">
+      <div class="msg">
+        <div class="msg-header">
+          <div class="ch-bar">
+            <img
+              class="ch-av"
+              src="./public/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+              alt
+            />
+            <div class="ch-dino">
+              <span class="ch-nm">ruxa</span>
+            <span class="msg-date">۱۴۰۵/۰۱/۱۸ ۰۶:۴۵</span>
+            </div>
+          </div>
+             <div class="msg-title">تست تایتل</div>
+        </div>
+        <div class="msg-body">
+          <div class="msg-media">
+            <img src="./public/assets/image copy.png" alt loading="lazy" />
+          </div>
 
-                <div class="ch-bar">
-                    <img class="ch-av"
-                        src="./files/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
-                        alt>
-                    <span class="ch-nm">ruxa</span>
-                </div>
-
-                <div class="msg">
-
-                    <div class="msg-media">
-
-                        <img
-                            src="./files/sticker-1774788693352-hawk-tuah-loona_1.gif"
-                            alt loading="lazy">
-
-                    </div>
-
-                    <div class="msg-text">
-                        KIR
-                    </div>
-                    <div class="msg-foot">
-                        <span class="msg-date">۱۴۰۵/۰۱/۱۸ ۰۶:۴۸</span>
-                    </div>
-                </div>
-                <div class="feed">
-
-                    <div class="ch-bar">
-                        <img class="ch-av"
-                            src="./files/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
-                            alt>
-                        <span class="ch-nm">ruxa</span>
-                    </div>
-
-                    <div class="msg">
-
-                        <div class="msg-media">
-
-                            <img
-                                src="./files/image.png"
-                                alt loading="lazy">
-
-                        </div>
-
-                        <div class="msg-text">
-                            nigger
-                        </div>
-                        <div class="msg-foot">
-                            <span class="msg-date">۱۴۰۵/۰۱/۱۸ ۰۶:۴۵</span>
-                        </div>
-                    </div>
-                    <div class="feed">
-
-                <div class="ch-bar">
-                    <img class="ch-av"
-                        src="./files/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
-                        alt>
-                    <span class="ch-nm">ruxa</span>
-                </div>
-
-                <div class="msg">
-
-                    <div class="msg-media">
-
-                        <img
-                            src="./files/image copy.png"
-                            alt loading="lazy">
-
-                    </div>
-
-                    <div class="msg-text">
-                        nigger
-                    </div>
-                    <div class="msg-foot">
-                        <span class="msg-date">۱۴۰۵/۰۱/۱۸ ۰۶:۴۵</span>
-                    </div>
-                </div>
-                </div>
-                <script>
-function time(){
-    const now = new Date();
-const time = now.toString();
-console.log(time); 
-  }
-function isL(){
-    return document.documentElement.getAttribute('data-theme')!=='dark'
-}
-function curF(){
-    return document.documentElement.getAttribute('data-fs')||'m'
-}
-function setT(t){
-    document.documentElement.setAttribute('data-theme',t);
-    try{localStorage.setItem('theme',t)}catch(e){}upd()
-}
-function setF(f){
-    document.documentElement.setAttribute('data-fs',f);
-    try{localStorage.setItem('fs',f)}catch(e){}upd()
-}
-function togglePanel(){
-    document.getElementById('sp').classList.toggle('open')}
-function upd(){
-var l=isL();
-document.querySelectorAll('#theme-opts button').forEach(function(b,i){b.className=((i===0&&l)||(i===1&&!l))?'active':''});
-}
-upd();
-document.addEventListener('click',function(e){if(!e.target.closest('.settings-wrap')){document.getElementById('sp').classList.remove('open')}});
-</script>
-            </body>
-        </html>
+          <div class="msg-text">تست متن فارسی.</div>
+          <div class="msg-foot">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
