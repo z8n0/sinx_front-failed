@@ -18,12 +18,14 @@
   --fs-3xlg: 22px;
   --fs-4xlg: 24px;
   --warp-selected-background: #e7e7e7;
+  --upload-border: #2c2c2c;
 }
 
 [data-theme="dark"] {
   --bg: #080808;
   --card: #1a1a1a;
   --border: #2c2c2c;
+  --upload-border: #d8d8d8;
   --text: #d8d8d8;
   --text2: #888;
   --text3: #666;
@@ -88,20 +90,20 @@ a {
   top: 0;
   z-index: 10;
 }
+
 .home-warp {
   flex: 1;
   position: relative;
   direction: ltr;
 }
-.chat-warp {
-}
+
 .settings-wrap {
   flex: 1;
   position: relative;
 }
 
 .warp-btn {
-    margin-left: 5px;
+  margin-left: 5px;
   background: none;
   border: none;
   color: var(--text2);
@@ -114,14 +116,14 @@ a {
   font-family: inherit;
 }
 
-.warp-btn-selected{
-    background: var(--warp-selected-background);
-    border-radius: 50px;
+.warp-btn-selected {
+  background: var(--warp-selected-background);
+  border-radius: 50px;
 }
 
-.warp-btn-redirectable{
-    cursor: pointer;
-    border-radius: 10px;
+.warp-btn-redirectable {
+  cursor: pointer;
+  border-radius: 10px;
   color: var(--text3);
 }
 
@@ -139,25 +141,7 @@ a {
   font-size: var(--fs-base);
   color: var(--text2);
 }
-.panel-upload {
-  top: 100px;
-  height: 500px;
-  width: 350px;
-  align-content: center;
-  display: none;
-  position: absolute;
-  margin: 0px -225px 0px 0px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 16px;
-  min-width: 200px;
-  z-index: 20;
-  box-shadow: var(--shadow);
-}
-.panel-upload.open {
-  display: block;
-}
+
 
 .panel-setting {
   top: 100px;
@@ -280,7 +264,7 @@ a {
   box-shadow: var(--shadow);
 }
 
-.msg + .ch-bar {
+.msg+.ch-bar {
   margin-top: 14px;
 }
 
@@ -309,7 +293,7 @@ a {
   height: 300px;
 }
 
-.grid.g3 > :first-child {
+.grid.g3> :first-child {
   grid-row: 1/3;
 }
 
@@ -402,6 +386,7 @@ a {
   color: var(--accent);
   text-decoration: none;
 }
+
 .msg-title {
   direction: rtl;
   font-family: "Pinar";
@@ -410,7 +395,8 @@ a {
   font-size: var(--fs-4xlg);
   text-shadow: var(--shadow);
 }
-.msg-header{
+
+.msg-header {
   padding: 10px;
   margin-bottom: 5px;
 }
@@ -434,7 +420,7 @@ a {
   margin-left: 10px;
 }
 
-.ch-dino{
+.ch-dino {
   display: flex;
   width: 100%;
   align-items: center;
@@ -458,12 +444,14 @@ a {
   border-radius: 50%;
   /* position: relative; */
 }
-.user{
+
+.user {
   display: flex;
   gap: 30px;
   align-items: center;
   margin-bottom: 10px;
 }
+
 .user-nm {
   flex: 1;
   font-family: "Pinar";
@@ -472,4 +460,87 @@ a {
   /* position: absolute; */
   /* margin: 25px 30px 0px 0px; */
   user-select: none;
+}
+
+/* upload-page */
+.upload-main {
+  margin: 50px 0px 0px 0px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-title {
+  font-family: Pinar;
+  font-weight: 800;
+  font-size: 35px;
+
+}
+
+.upload-text {
+  font-size: 20px;
+  font-family: Pinar;
+  font-weight: 500;
+  margin: 0px 0px 20px 0px;
+}
+
+hr {
+  margin: 0px 150px 50px 150px;
+}
+
+.uploader-placeholder {
+
+  justify-items: center;
+}
+
+.uploader {
+  position: relative;
+  border-radius: 10px;
+  border: var(--upload-border) dashed 2PX;
+  padding: 20px 0px 0px 0px;
+  width: 500px;
+  height: 250px;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+}
+
+.uploader:hover {
+  transform: translate(0, 5px);
+  box-shadow: var(--shadow);
+  background-color: var(--border)
+}
+
+.uploader svg {
+  transform: scale(200%);
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.uploadzone-text {
+  font-family: Pinar;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+@media (max-width: 800px) {
+
+  .uploader {
+
+    width: 400px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 800px) {
+
+  .uploader {
+
+    width: 500px;
+    height: 250px;
+  }
 }
