@@ -525,6 +525,7 @@ hr {
   font-family: Pinar;
   font-weight: 600;
   font-size: 20px;
+  user-select: none;
 }
 
 @media (max-width: 800px) {
