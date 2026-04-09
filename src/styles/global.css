@@ -14,19 +14,11 @@
 }
 
 
-::-webkit-scrollbar {
-  background: var(--scrollbar-bg);
-  width: 8px;
 
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 15px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-hover);
+body html{
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -50,10 +42,12 @@ a {
   background: var(--card);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow);
-  position: sticky;
   padding: 5px;
   top: 0;
-  z-index: 10;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .home-warp {
@@ -186,6 +180,36 @@ a {
 .fs-opts button svg {
   width: 24px;
   height: 24px;
+}
+
+.main-content{
+  margin-top: 50px;
+  height: calc(100vh - 50px);
+  overflow: hidden;
+}
+
+.feeds {
+  direction: rtl;
+  overflow-y: auto;
+  height: calc(100vh - 60px);
+  overflow-x: hidden;
+  max-height: 100vh;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
+
+.feeds::-webkit-scrollbar {
+  background: var(--scrollbar-bg);
+  width: 8px;
+}
+
+.feeds::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 15px;
+}
+
+.feeds::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+  scrollbar-color: var(--scrollbar-hover) var(--scrollbar-bg);
 }
 
 .feed {

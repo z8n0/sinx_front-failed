@@ -1,10 +1,21 @@
 ---
+const {SelectedPage = "home"} = Astro.props;
 import HomeWarp from "./warps/HomeWarp.astro"
 import SettingsWarp from "./warps/SettingsWarp.astro"
 import UploadWarp from "./warps/UploadWarp.astro"
 ---
 <div class="topbar">
-        <HomeWarp />
-        <UploadWarp />
+        {SelectedPage == "home" && (
+                <HomeWarp isSelected=true />
+        )}
+        {SelectedPage != "home" && (
+                <HomeWarp />
+        )}
+        {SelectedPage == "upload" && (
+                <UploadWarp isSelected=true />
+        )}
+        {SelectedPage != "upload" && (
+                <UploadWarp/>
+        )}
         <SettingsWarp />
 </div>
