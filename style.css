@@ -20,9 +20,9 @@
   --warp-selected-background: #e7e7e7;
   --upload-border: #2c2c2c;
   --like-btn-bg: rgb(233, 9, 9);
-  --scrollbar-bg:linear-gradient(#817878,#3f3f3f);
-  --scrollbar-thumb:#2c2c2c ;
-   --scrollbar-hover:#a5a9b3;
+  --scrollbar-bg: linear-gradient(#817878, #3f3f3f);
+  --scrollbar-thumb: #2c2c2c;
+  --scrollbar-hover: #a5a9b3;
 }
 
 [data-theme="dark"] {
@@ -67,18 +67,20 @@
   font-family: "Pinar";
   src: url("./public/fonts/Pinar-VF.woff2") format("woff2");
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
   background: var(--scrollbar-bg);
   width: 8px;
 
 }
 
 ::-webkit-scrollbar-thumb {
-    background:var(--scrollbar-thumb);
-    border-radius: 15px;
+  background: var(--scrollbar-thumb);
+  border-radius: 15px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background:var(--scrollbar-hover);
+  background: var(--scrollbar-hover);
 }
 
 body {
@@ -499,16 +501,24 @@ a {
   opacity: 100%;
 }
 
-.vote-group {
+.social-bar {
   display: flex;
-  direction: ltr;
+  border-top: 0.5px var(--border) solid;
+  padding: 5px 0px 0px 0px;
+  width: 100%;
+}
+
+.vote-group {
+
+  display: flex;
+
   height: 30px;
   width: 50px;
 }
 
 .like {
   flex: 1;
- 
+
 
 }
 
@@ -516,16 +526,38 @@ a {
   border: none;
   background: none;
   user-select: none;
+  cursor: pointer;
 }
 
 .btn-like.active svg path {
   fill: #ff0000;
+  stroke: var(--border);
+  cursor: pointer;
 }
 
 .likenumber {
   user-select: none;
   text-align: center;
   flex: 1;
+}
+
+.comment-group {
+  display: flex;
+  cursor: pointer;
+  height: 30px;
+  width: 50px;
+}
+
+.btn-comment {
+  cursor: pointer;
+  background: none;
+  border: none;
+  user-select: none;
+}
+
+.comment-text {
+  padding: 0px 5px 0px 0px;
+  user-select: none;
 }
 
 /* upload-page */
@@ -582,7 +614,7 @@ hr {
   background-color: var(--border)
 }
 
-.uploader svg {
+.uploader-svg   {
   transform: scale(200%);
   margin-top: 20px;
   margin-bottom: 30px;
