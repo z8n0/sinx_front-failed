@@ -1,8 +1,13 @@
 ---
 import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
-import PostCard from '../components/PostCard.astro';
+import Uploads from "../components/Upload-main.astro"
 ---
-  <Layout pageName="Home Page">
+  <Layout pageName="Upload Page">
     <Header SelectedPage="upload"/>
+    <main class="main-content">
+      <div class="upload-main">
+        <Uploads/>
+        </div>
+  </main>
   </Layout>
