@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "AradDots2";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Arad/woff2/Arad-RegularDots2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AradDots2";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Arad/woff2/Arad-LightDots2.woff2") format("woff2");
+}
+
+
+@font-face {
+  font-family: "AradDots2";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/Arad/woff2/Arad-MediumDots2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AradDots2";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/Arad/woff2/Arad-BoldDots2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AradDots2";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/Arad/woff2/Arad-BlackDots2.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AradDots2";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/Arad/woff2/Arad-ExtraBoldDots2.woff2") format("woff2");
+}

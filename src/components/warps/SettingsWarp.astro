@@ -1,0 +1,81 @@
+<div class="settings-wrap">
+        <button
+          class="warp-btn warp-btn-redirectable"
+          onclick="togglePanel()"
+          aria-label="تنظیمات">
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            viewBox="0 0 24 24">
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </button>
+        <div class="panel-setting" id="sp">
+          <div class="row">
+            <div class="user">
+              <img
+                class="user-av"
+                src="/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+                alt="avatar" />
+              <span class="user-nm">ruxa</span>
+
+              <div class="chengename"><button class="btn-chengename">
+                  <svg class="chengename-svg" version="1.1" id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    width="24px" height="24px" viewBox="0 0 24 24"
+                    enable-background="new 0 0 24 24" xml:space="preserve">
+                    <g>
+                      <path fill="none" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M2.9666,15.906
+		c-0.0677,0.0677-2.3442,6.4903-2.3442,6.4903c-0.2302,0.5559,0.3895,1.2345,0.9889,0.9893c0,0,6.4568-2.2424,6.5246-2.3102" />
+
+                      <line fill="none" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        x1="1.0843" y1="21.1119" x2="2.9027" y2="22.9303" />
+                      <path fill="none" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        d="M22.9616,4.0034
+		l-2.923-2.923c-0.6203-0.6203-1.626-0.6203-2.2463,0L2.9666,15.906l5.1693,5.1693L22.9616,6.2497
+		C23.5819,5.6294,23.5819,4.6237,22.9616,4.0034z" />
+
+                      <line fill="none" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-miterlimit="10"
+                        x1="6.0966" y1="19.0359" x2="18.1969" y2="6.9356" />
+                    </g>
+                    <rect x="0" y="0" fill="none" width="24" height="24" />
+                  </svg>
+                </button>
+
+              </div>
+            </div>
+
+            <div class="opts" id="theme-opts">
+              <button onclick="setT('light')" aria-label="روشن">
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="5" />
+                  <path
+                    d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.73 12.73 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+              </button>
+              <button onclick="setT('dark')" aria-label="تاریک">
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>

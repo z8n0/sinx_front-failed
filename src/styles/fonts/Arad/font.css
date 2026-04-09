@@ -1,0 +1,27 @@
+@import "./Arad.css";
+@import "./Arad-Dots2.css";
+@import "./Arad-Dots3.css";
+
+.Digit_Substitution_Arabic_and_English_to_Persian {
+  font-feature-settings: "ss01";
+}
+
+.Swash_Kaf_and_Gaf {
+  font-feature-settings: "ss02";
+}
+
+.Reversed_Yeh {
+  font-feature-settings: "ss03";
+}
+
+.Rial_Toman_and_Derham_symbols {
+  font-feature-settings: "ss04";
+}
+
+.UI_Numbers_and_Symbols {
+  font-feature-settings: "ss05";
+}
+
+.tabular-numbers {
+  font-feature-settings: "tnum";
+}
