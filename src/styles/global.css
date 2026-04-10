@@ -15,7 +15,7 @@
 
 
 
-body html{
+body html {
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -182,7 +182,7 @@ a {
   height: 24px;
 }
 
-.main-content{
+.main-content {
   overflow: hidden;
   margin-top: 50px;
   height: calc(100vh - 50px);
@@ -588,7 +588,7 @@ hr {
   background-color: var(--border)
 }
 
-.uploader-svg   {
+.uploader-svg {
   transform: scale(200%);
   margin-top: 20px;
   margin-bottom: 30px;
@@ -618,4 +618,92 @@ hr {
     width: 500px;
     height: 250px;
   }
+}
+
+/* login-page style */
+
+.login-main {
+  text-align: center;
+  justify-items: center;
+  align-content: center;
+
+}
+
+.login-card {
+  margin: 70px 0px 0px 0px;
+  width: 400px;
+  height: 550px;
+  border: 1px black solid;
+  border-radius: 8px;
+
+}
+
+.login {
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 0px 20px;
+
+}
+
+.login-p {
+  background-color: var(--bg);
+  direction: rtl;
+  user-select: none;
+  z-index: 99;
+  margin: 0px 0px -10px 0px;
+  padding: 5px 0px 0px 20px;
+  text-align: left;
+}
+.login-a{
+  font-size: var(--fs-lg);
+}
+.login-a:hover{
+  transform: translate( 0,1px);
+  transition: .2s;
+}
+.login-p-user {
+  direction: rtl;
+  padding-right: 5px;
+  margin-left: 5px;
+  width: 40px;
+}
+
+.login-p-email {
+  direction: rtl;
+  padding-right: 5px;
+  margin-left: 5px;
+  width: 48px;
+}
+
+.login-p-password {
+  direction: rtl;
+  padding-right: 5px;
+  margin-left: 5px;
+  width: 70px;
+}
+
+  
+.login-input {
+
+  font-size: var(--fs-xlg);
+  direction: ltr;
+  border: 1px black solid;
+  padding: 3px 5px 3px 5px;
+  border-radius: 7px;
+}
+
+.login-input {
+  margin: 0px 0px 0px 0px;
+}
+
+.top-login {
+
+  user-select: none;
+  align-content: center;
+  text-align: center;
+  font-family: Pinar;
+  font-size: 20px;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px black solid;
 }
