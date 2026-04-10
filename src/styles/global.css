@@ -645,7 +645,7 @@ hr {
   flex-direction: column;
   padding: 20px 20px 0px 20px;
 }
-.login-title{
+.login-title{ /* KIR TO DINO! */
   font-size: 50px;
   user-select: none;
   align-self: center;
