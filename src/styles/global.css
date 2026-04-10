@@ -215,6 +215,7 @@ a {
 }
 
 .feed {
+  direction: rtl;
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0px 0px 32px;
@@ -635,6 +636,8 @@ hr {
   height: 550px;
   border: 1px black solid;
   border-radius: 8px;
+  background: var(--login-card-bg);
+  box-shadow: var(--shadow);
 
 }
 
@@ -645,9 +648,12 @@ hr {
   padding: 20px 20px 0px 20px;
 
 }
-
+.login-title{
+  font-size: 50px;
+  user-select: none;
+}
 .login-p {
-  background-color: var(--bg);
+  background-color: var(--login-card-bg);
   direction: rtl;
   user-select: none;
   z-index: 99;
@@ -666,7 +672,7 @@ hr {
   direction: rtl;
   padding-right: 5px;
   margin-left: 5px;
-  width: 40px;
+  width: 75px;
 }
 
 .login-p-email {
@@ -682,7 +688,12 @@ hr {
   margin-left: 5px;
   width: 70px;
 }
-
+.login-p-Confirmpassword{
+  direction: rtl;
+  padding-left: 5px;
+  margin-left: 5px;
+  width: 125px;
+}
   
 .login-input {
 
@@ -706,4 +717,15 @@ hr {
   font-size: 20px;
   padding: 5px 0px 5px 0px;
   border-bottom: 1px black solid;
+}
+.confirm{
+  background-color: var(--btn-bg);
+  margin: 30px 0px 10px 0px;
+  padding:0;
+  height: 50px;
+  border-radius: 7px;
+}
+.confirm:hover{
+  background: var(--btn-bg-hover);
+  transition: 0.2s;
 }

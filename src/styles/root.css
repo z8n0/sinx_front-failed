@@ -5,7 +5,10 @@
   --text: #1a1a1a;
   --text2: #5c5c5c;
   --text3: #9a9a9a;
-  --accent: #2563eb;
+  --accent: #4a81f8;
+  --btn-bg: #BDB6EC;
+  --btn-bg-hover: #ada6d8;
+  --login-card-bg:#e0e3e9;
   --heading: #111;
   --shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -33,7 +36,10 @@
   --text: #d8d8d8;
   --text2: #888;
   --text3: #666;
+  --btn-bg: #575086;
+  --btn-bg-hover: #645c97;
   --accent: #4a90e2;
+   --login-card-bg:#363434;
   --heading: #f0f0f0;
   --shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
   --warp-selected-background: #303030;
