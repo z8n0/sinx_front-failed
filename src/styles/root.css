@@ -1,3 +1,6 @@
+@theme{
+  --color-white: #e4e6eb
+}
 :root {
   --bg: #e4e6eb;
   --card: #fff;
@@ -29,7 +32,7 @@
 }
 
 [data-theme="dark"] {
-  --bg: #080808;
+  --color-white: #080808;
   --card: #1a1a1a;
   --border: #2c2c2c;
   --upload-border: #d8d8d8;
