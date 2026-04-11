@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChatCircle, X, PaperPlaneTilt } from '@phosphor-icons/react';
+import { ChatCircle, X, PaperPlaneTilt, CaretUp, HeartIcon } from '@phosphor-icons/react';
 import '../../styles/commentBTN.css';
 
 function CommentSection() {
@@ -24,6 +24,17 @@ function CommentSection() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains('comment-overlay')) {
       closeSidebar();
@@ -38,7 +49,7 @@ function CommentSection() {
       id: Date.now(),
       user: 'You',
       text: newComment,
-      time: 'rn'
+      time: 'now'
     };
 
     setComments([...comments, comment]);
@@ -56,17 +67,19 @@ function CommentSection() {
         <div className="comment-overlay" onClick={handleOverlayClick}>
           <div className="comment-sidebar">
             <div className="comment-header">
-              <h3>کامنت‌ها</h3>
-              <button className="btn-close" onClick={closeSidebar}>
-                <X size={24} />
-              </button>
+              <div className="header-drag-handle"></div>
+              <div className="header-content">
+                <h3>Comments</h3>
+                <button className="btn-close" onClick={closeSidebar}>
+                  <X size={24} weight="bold" />
+                </button>
+              </div>
             </div>
-
             <div className="comment-list">
               {comments.map((comment) => (
                 <div key={comment.id} className="comment-item">
                   <div className="comment-avatar">
-                    {comment.user.charAt(0)}
+                    {comment.user.charAt(0).toUpperCase()}
                   </div>
                   <div className="comment-content">
                     <div className="comment-meta">
@@ -74,19 +87,23 @@ function CommentSection() {
                       <span className="comment-time">{comment.time}</span>
                     </div>
                     <p className="comment-body">{comment.text}</p>
+                    <div className="comment-actions">
+                      <button className="reply-btn">Reply</button>
+                      <button className="like-btn"><HeartIcon /></button>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-
             <form className="comment-form" onSubmit={handleSubmit}>
+              {/* <div className="emoji-btn"></div> */}
               <input
                 type="text"
-                placeholder="MIG MIG"
+                placeholder="Add a comment..."
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
               />
-              <button type="submit">
+              <button type="submit" disabled={!newComment.trim()}>
                 <PaperPlaneTilt size={20} />
               </button>
             </form>
