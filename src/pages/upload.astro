@@ -2,11 +2,11 @@
 import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 import Uploads from "../components/Upload-main.astro";
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 ---
   <Layout pageName="Upload Page">
     <head>
-      <ViewTransitions/>
+      <ClientRouter />
     </head>
     <Header SelectedPage="upload"/>
     <main class="main-content">

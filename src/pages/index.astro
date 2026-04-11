@@ -2,12 +2,12 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import PostCard from "../components/PostCard.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <Layout pageName="Home Page">
      <head>
-      <ViewTransitions/>
+      <ClientRouter />
     </head>
   <Header SelectedPage="home" />
   <main class="main-content">
