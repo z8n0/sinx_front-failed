@@ -2,9 +2,13 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import PostCard from "../components/PostCard.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <Layout pageName="Home Page">
+     <head>
+      <ViewTransitions/>
+    </head>
   <Header SelectedPage="home" />
   <main class="main-content">
     <div class="feeds">
