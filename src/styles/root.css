@@ -5,6 +5,8 @@
   --bg: #e4e6eb;
   --card: #fff;
   --border: #d0d3d9;
+  --border-secendry:rgba(236, 231, 231, 0);
+  --border-focus:#adb0b4;
   --text: #1a1a1a;
   --text2: #5c5c5c;
   --text3: #9a9a9a;
@@ -13,7 +15,7 @@
   --btn-bg-hover: #ada6d8;
   --login-card-bg:#e0e3e9;
   --heading: #111;
-  --shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 1px 4px rgba(0, 0, 0, 0.2);
   --max-w: 470px;
   --fs-sm: 12px;
@@ -35,6 +37,7 @@
   --color-white: #080808;
   --card: #1a1a1a;
   --border: #2c2c2c;
+   --border-focus:#252424;
   --upload-border: #d8d8d8;
   --text: #d8d8d8;
   --text2: #888;
@@ -44,6 +47,6 @@
   --accent: #4a90e2;
    --login-card-bg:#363434;
   --heading: #f0f0f0;
-  --shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   --warp-selected-background: #303030;
 }

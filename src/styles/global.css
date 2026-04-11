@@ -62,6 +62,7 @@ a {
 }
 
 .warp-btn {
+
   margin-left: 5px;
   background: none;
   border: none;
@@ -627,29 +628,37 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 10vh;
+ 
+
 }
 
 .login-card {
+  background: var(--card);
   margin: 70px 0px 0px 0px;
   width: 400px;
+
   height: 550px;
-  border: 1px black solid;
+  border: 1px var(--border) solid;
   border-radius: 8px;
   background: var(--login-card-bg);
   box-shadow: var(--shadow);
 }
+
 .login {
   direction: ltr;
   display: flex;
   flex-direction: column;
   padding: 20px 20px 0px 20px;
 }
-.login-title{ /* KIR TO DINO! */
+
+.login-title {
+ letter-spacing: 5px;
+  text-shadow: var(--shadow);
   font-size: 50px;
   user-select: none;
   align-self: center;
 }
+
 .login-p {
   background-color: var(--login-card-bg);
   direction: rtl;
@@ -659,14 +668,17 @@ hr {
   padding: 5px 0px 0px 20px;
   text-align: left;
 }
-.login-a{
+
+.login-a {
   align-self: center;
   font-size: var(--fs-lg);
 }
-.login-a:hover{
-  transform: translate( 0,1px);
+
+.login-a:hover {
+  transform: translate(0, 1px);
   transition: .2s;
 }
+
 .login-p-user {
   direction: rtl;
   padding-right: 5px;
@@ -687,27 +699,31 @@ hr {
   margin-left: 5px;
   width: 70px;
 }
-.login-p-Confirmpassword{
+
+.login-p-Confirmpassword {
   direction: rtl;
   padding-left: 5px;
   margin-left: 5px;
   width: 125px;
 }
-  
+
 .login-input {
+  margin: 0px 0px 0px 0px;
 
   font-size: var(--fs-xlg);
   direction: ltr;
-  border: 1px black solid;
+  border: 1px var(--border) solid;
   padding: 3px 5px 3px 5px;
   border-radius: 7px;
 }
 
-.login-input {
-  margin: 0px 0px 0px 0px;
+input:focus  {
+   outline: none;
+  border: 1px solid var(--border-focus);
+ 
 }
 
-.idfk-nigga{
+.idfk-nigga {
   align-self: center;
 }
 
@@ -719,16 +735,18 @@ hr {
   font-family: Pinar;
   font-size: 20px;
   padding: 5px 0px 5px 0px;
-  border-bottom: 1px black solid;
+  border-bottom: 1px solid var(--border-focus);
 }
-.confirm{
+
+.confirm {
   background-color: var(--btn-bg);
   margin: 30px 0px 10px 0px;
-  padding:0;
+  padding: 0;
   height: 50px;
   border-radius: 7px;
 }
-.confirm:hover{
+
+.confirm:hover {
   background: var(--btn-bg-hover);
   transition: 0.2s;
 }
