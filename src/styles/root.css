@@ -13,18 +13,11 @@
   --accent: #4a81f8;
   --btn-bg: #BDB6EC;
   --btn-bg-hover: #ada6d8;
-  --login-card-bg:#e0e3e9;
+  --auth-card-bg:#e0e3e9;
   --heading: #111;
   --shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 1px 4px rgba(0, 0, 0, 0.2);
   --max-w: 470px;
-  --fs-sm: 12px;
-  --fs-base: 14px;
-  --fs-lg: 16px;
-  --fs-xlg: 18px;
-  --fs-2xlg: 20px;
-  --fs-3xlg: 22px;
-  --fs-4xlg: 24px;
   --warp-selected-background: #e7e7e7;
   --upload-border: #2c2c2c;
   --like-btn-bg: rgb(233, 9, 9);
@@ -34,10 +27,10 @@
 }
 
 [data-theme="dark"] {
-  --color-white: #080808;
+  --bg: #080808;
   --card: #1a1a1a;
   --border: #2c2c2c;
-   --border-focus:#252424;
+  --border-focus:#252424;
   --upload-border: #d8d8d8;
   --text: #d8d8d8;
   --text2: #888;
@@ -45,7 +38,7 @@
   --btn-bg: #575086;
   --btn-bg-hover: #645c97;
   --accent: #4a90e2;
-   --login-card-bg:#363434;
+  --auth-card-bg:#363434;
   --heading: #f0f0f0;
   --shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
   --warp-selected-background: #303030;

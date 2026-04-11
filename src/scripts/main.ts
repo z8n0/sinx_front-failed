@@ -81,3 +81,18 @@ document.addEventListener("astro:page-load", () => {
   });
 
 });
+
+  const inputs = [
+    { input: document.getElementById('input-user'), label: document.getElementById('label-user') },
+    { input: document.getElementById('input-password'), label: document.getElementById('label-password') }
+  ];
+
+  inputs.forEach(({ input, label }) => {
+    input?.addEventListener('focus', () => {
+      label?.classList.add('scale-105', 'text-(--btn-bg-hover)');
+    });
+    
+    input?.addEventListener('blur', () => {
+      label?.classList.remove('scale-105', 'text-(--btn-bg-hover)');
+    });
+  });

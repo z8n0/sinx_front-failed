@@ -1,0 +1,118 @@
+.auth-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.auth-card {
+  background: var(--card);
+  width: 400px;
+  height: fit-content;
+  padding: 30px;
+  border: 1px var(--border) solid;
+  border-radius: 8px;
+  background: var(--auth-card-bg);
+  box-shadow: var(--shadow);
+  margin: 0;
+}
+
+.auth {
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 0px 20px;
+}
+
+.auth-title {
+ letter-spacing: 3px;
+  text-shadow: var(--shadow);
+  font-size: 40px;
+  margin-bottom: 10px;
+  user-select: none;
+  font-family: "Arad";
+  align-self: center;
+}
+
+.auth-p {
+  background-color: var(--auth-card-bg);
+  font-family: "Arad";
+  direction: rtl;
+  user-select: none;
+  z-index: 99;
+  margin: 0px 0px -10px 0px;
+  padding: 5px 0px 0px 20px;
+  text-align: left;
+}
+
+.auth-a {
+  font-family: "Arad";
+  align-self: center;
+  font-size: var(--fs-lg);
+}
+
+.auth-a:hover {
+  transform: translate(0, 1px);
+  transition: .2s;
+}
+
+.auth-p-user {
+  font-family: "Arad";
+  direction: rtl;
+  padding-right: 5px;
+  margin-left: 5px;
+  width: 75px;
+}
+
+.auth-p-password {
+  direction: rtl;
+  font-family: "Arad";
+  padding-right: 5px;
+  margin-left: 5px;
+  width: 70px;
+}
+
+.auth-p-Confirmpassword {
+  direction: rtl;
+  padding-left: 5px;
+  margin-left: 5px;
+  font-family: "Arad";
+  width: 125px;
+}
+
+.auth-input {
+  margin: 0px 0px 0px 0px;
+  font-family: "Arad";
+  font-size: var(--fs-xlg);
+  direction: ltr;
+  border: 1px var(--border) solid;
+  padding: 8px 5px 3px 5px;
+  border-radius: 7px;
+}
+
+input:focus  {
+   outline: none;
+  border: 1px solid var(--border-focus);
+ 
+}
+
+.idfk-nigga {
+  font-family: "Arad";
+  align-self: center;
+}
+
+.confirm {
+  background-color: var(--btn-bg);
+  margin: 30px 0px 10px 0px;
+  font-family: "Arad";
+  padding: 0;
+  height: 50px;
+  border-radius: 7px;
+}
+
+.confirm:hover {
+  background: var(--btn-bg-hover);
+  transition: 0.2s;
+}
