@@ -624,10 +624,10 @@ hr {
 /* login-page style */
 
 .login-main {
-  text-align: center;
-  justify-items: center;
-  align-content: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
 }
 
 .login-card {
@@ -638,19 +638,17 @@ hr {
   border-radius: 8px;
   background: var(--login-card-bg);
   box-shadow: var(--shadow);
-
 }
-
 .login {
   direction: ltr;
   display: flex;
   flex-direction: column;
   padding: 20px 20px 0px 20px;
-
 }
-.login-title{
+.login-title{ /* KIR TO DINO! */
   font-size: 50px;
   user-select: none;
+  align-self: center;
 }
 .login-p {
   background-color: var(--login-card-bg);
@@ -662,6 +660,7 @@ hr {
   text-align: left;
 }
 .login-a{
+  align-self: center;
   font-size: var(--fs-lg);
 }
 .login-a:hover{
@@ -706,6 +705,10 @@ hr {
 
 .login-input {
   margin: 0px 0px 0px 0px;
+}
+
+.idfk-nigga{
+  align-self: center;
 }
 
 .top-login {
