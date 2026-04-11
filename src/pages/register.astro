@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Registers from "../components/RegisterForm.astro";
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 ---
   <Layout pageName="register Page">
        <head>
-      <ViewTransitions/>
+      <ClientRouter />
     </head>
     <main class="login-main">
         <Registers />

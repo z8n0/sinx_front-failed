@@ -1,8 +1,11 @@
+---
+import LightThemeBTN from "./SettingsWarp/LightThemeBTN.astro"
+import DarkThemeBTN from "./SettingsWarp/DarkThemeBTN.astro"
+---
 <div class="settings-wrap">
-  <a href="/login">
         <button
           class="warp-btn warp-btn-redirectable"
-          onclick="togglePanel()"
+          id="open-settings-panel"
           aria-label="تنظیمات">
           <svg
             fill="none"
@@ -14,7 +17,7 @@
             <circle cx="12" cy="12" r="3" />
           </svg>
         </button>
-        <div class="panel-setting" id="sp">
+        <div class="panel-setting panel-setting-hidden" id="sp">
           <div class="row">
             <div class="user">
               <img
@@ -56,28 +59,9 @@
             </div>
 
             <div class="opts" id="theme-opts">
-              <button onclick="setT('light')" aria-label="روشن">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="5" />
-                  <path
-                    d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.73 12.73 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                </svg>
-              </button>
-              <button onclick="setT('dark')" aria-label="تاریک">
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              </button>
+              <LightThemeBTN />
+              <DarkThemeBTN />
             </div>
           </div>
         </div>
-        </a>
       </div>
