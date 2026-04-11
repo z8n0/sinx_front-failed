@@ -13,13 +13,13 @@ document.addEventListener("astro:page-load", () => {
     try {
       localStorage.setItem("theme", t);
     } catch (e) {}
-    upd();
+    updateTheme();
   }
 
   const darkThemeToggleBTN = document.getElementById("dark-theme-btn");
   const lightThemeToggleBTN = document.getElementById("light-theme-btn");
 
-  function upd() {
+  function updateTheme() {
     const l = isL();
     
     lightThemeToggleBTN?.classList.toggle("active", l);
@@ -31,7 +31,7 @@ document.addEventListener("astro:page-load", () => {
     if (t) document.documentElement.setAttribute("data-theme", t);
   } catch (e) {}
 
-  upd();
+  updateTheme();
 
   darkThemeToggleBTN?.addEventListener("click", () => {
     setT(Themes.DARK);

@@ -1,0 +1,27 @@
+---
+import LightThemeBTN from "./warps/SettingsWarp/LightThemeBTN.astro"
+import DarkThemeBTN from "./warps/SettingsWarp/DarkThemeBTN.astro"
+import { PenIcon } from "@phosphor-icons/react"
+---
+<div class="panel-setting panel-setting-hidden" id="sp">
+          <div class="row">
+            <div class="user">
+              <img
+                class="user-av"
+                src="/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+                alt="avatar" />
+              <span class="user-nm">ruxa</span>
+
+              <div class="chengename"><button class="btn-chengename">
+                  <PenIcon size={24} color="var(--text)" />
+                </button>
+
+              </div>
+            </div>
+
+            <div class="opts" id="theme-opts">
+              <LightThemeBTN />
+              <DarkThemeBTN />
+            </div>
+          </div>
+        </div>
