@@ -6,6 +6,8 @@ const email = "null.@gmail.com";
 console.log(user.value);
 console.log(password.value);
 
+// TODO: So, Because user can register and login in one form, we after the form submit, should check is there any user with this username or not, if it was, the script must request to login endpoint and if it wasn't, it must request to register endpoint. I wanted to do this but I thought that It's better that you do it. (login endpoint is not ready yet so just add a log for when it should request to login and I really suggest you to create a class or another file that has all API functions and use them. good luck!)
+
 function post() {
   try {
     const response = axios.post(url, {
