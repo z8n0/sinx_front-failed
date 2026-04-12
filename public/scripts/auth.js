@@ -17,12 +17,12 @@ function post() {
     }, {
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
     });
     console.log(response.data);
 
   } catch (error) {
-
+    const response = error.response
     switch (response.response.status) {
       case 400:
 
@@ -82,7 +82,5 @@ function post() {
 
 
   }
-  console.log(user.value);
-console.log(password.value);
 
 }
