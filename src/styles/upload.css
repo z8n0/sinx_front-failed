@@ -1,3 +1,7 @@
+.loading-main{
+  user-select: none;
+  overflow: hidden;
+}
 .upload-main {
   align-items: center;
   user-select: none;

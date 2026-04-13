@@ -1,4 +1,7 @@
-
+---
+import LightThemeBTN from "./warps/SettingsWarp/LightThemeBTN.astro"
+import DarkThemeBTN from "./warps/SettingsWarp/DarkThemeBTN.astro"
+---
 <div class="auth-card">
   <form class="auth" action="">
     <p class="auth-title no-select">Login/Register</p>
@@ -19,11 +22,18 @@
       name=""
       id="input-password"
       autocomplete="off"
-      class="password  auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--btn-bg-hover) focus:outline-none no-select"
+      class="password auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--btn-bg-hover) focus:outline-none no-select"
     />
 
     <button class="confirm no-select" onclick="post()">Submit</button>
   </form>
 </div>
-<script src="https://lib.arvancloud.ir/axios/1.3.4/axios.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script is:inline    src="/scripts/auth.js"></script>
+<div class="opts" id="theme-opts">
+  <LightThemeBTN />
+  <DarkThemeBTN />
+</div>
+<script
+  src="https://lib.arvancloud.ir/axios/1.3.4/axios.js"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+<script is:inline src="/scripts/auth.js"></script>

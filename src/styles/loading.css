@@ -1,0 +1,31 @@
+.loading {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.loading P {
+   font-family: Pinar;
+   font-weight: 600;
+}
+.loader-particles {
+    scale: 150%;
+    align-self: center;
+  display: flex;
+  gap: 8px;
+  padding: 20px;
+}
+.loader-particles span {
+  width: 12px;
+  height: 12px;
+  background-color: #6c5ce7;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+  -webkit-animation: bounce 1.4s infinite ease-in-out;
+}
+
+.loader-particles span:nth-child(1) { animation-delay: 0s; }
+.loader-particles span:nth-child(2) { animation-delay: 0.1s; }
+.loader-particles span:nth-child(3) { animation-delay: 0.2s; }
+.loader-particles span:nth-child(4) { animation-delay: 0.3s; }
+.loader-particles span:nth-child(5) { animation-delay: 0.4s; }

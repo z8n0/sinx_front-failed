@@ -1,19 +1,35 @@
 .auth-main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 0;
   margin: 0;
+  overflow: hidden;
+}
+
+.opts {
+  margin-bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  border-radius: 13px;
+  padding: 5px;
+  height: 45px;
+  width: 200px;
+  background: var(--auth-card-bg);
+  box-shadow: var(--shadow);
+  border: 1px var(--border) solid;
 }
 
 .no-select {
   user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none; 
+  -ms-user-select: none;
 }
+
 .auth-card {
-  background: var(--card);
+
   width: 400px;
   height: fit-content;
   padding: 30px;
