@@ -43,7 +43,7 @@
 }
 
 .auth-title:hover {
-  letter-spacing: 4px;
+  transform: scale(102%);
   text-shadow: var(--shadow);
   transition: 1s;
 }
