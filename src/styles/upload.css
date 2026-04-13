@@ -36,10 +36,10 @@ hr {
   position: relative;
   border-radius: 10px;
   border: var(--upload-border) dashed 2PX;
-  padding: 20px 0px 0px 0px;
   width: 500px;
   height: 250px;
   transition: 0.5s;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,13 +52,6 @@ hr {
   box-shadow: var(--shadow);
   background-color: var(--border)
 }
-
-.uploader-svg {
-  transform: scale(200%);
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
 .uploadzone-text {
   font-family: Pinar;
   font-weight: 600;

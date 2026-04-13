@@ -1,26 +1,28 @@
 
 <div class="auth-card">
   <form class="auth" action="">
-    <p class="auth-title">Login/Register</p>
+    <p class="auth-title no-select">Login/Register</p>
 
-    <p class="auth-p auth-p-user" id="label-user">Username</p>
+    <p class="auth-p auth-p-user no-select" id="label-user">Username</p>
     <input
       maxlength="32"
       name=""
       id="input-user"
-      class="user auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--btn-bg-hover) focus:outline-none"
+      autocomplete="off"
+      class="user auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--btn-bg-hover) focus:outline-none no-select"
     />
 
-    <p class="auth-p auth-p-password" id="label-password">Password</p>
+    <p class="auth-p no-select auth-p-password" id="label-password">Password</p>
     <input
       maxlength="32"
       type="password"
       name=""
       id="input-password"
-      class="password auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--btn-bg-hover) focus:outline-none"
+      autocomplete="off"
+      class="password  auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--btn-bg-hover) focus:outline-none no-select"
     />
 
-    <button class="confirm" onclick="post()">Submit</button>
+    <button class="confirm no-select" onclick="post()">Submit</button>
   </form>
 </div>
 <script src="https://lib.arvancloud.ir/axios/1.3.4/axios.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

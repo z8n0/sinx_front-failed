@@ -15,7 +15,11 @@
   box-sizing: border-box;
 }
 
-
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+}
 
 body html {
   overflow: hidden;
@@ -369,7 +373,6 @@ a {
   font-family: "AradDots3";
   font-size: var(--fs-base);
   line-height: 1.75;
-
   direction: auto;
   unicode-bidi: plaintext;
   text-align: start;
@@ -453,7 +456,6 @@ a {
   font-family: "Pinar";
   font-weight: 400;
   font-size: 20px;
-  user-select: none;
 }
 
 .btn-chengename {

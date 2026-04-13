@@ -15,6 +15,7 @@
 }
 
 .comment-count {
+  user-select: none;
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
@@ -39,6 +40,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -88,11 +90,13 @@
   -moz-scrollbar-face-color: var(--border);
   -moz-scrollbar-track-color: transparent;
 }
+
 @keyframes popIn {
   from {
     transform: scale(0.9) translateY(20px);
     opacity: 0;
   }
+
   to {
     transform: scale(1) translateY(0);
     opacity: 1;
@@ -308,6 +312,7 @@
     from {
       transform: translateY(100%);
     }
+
     to {
       transform: translateY(0);
     }
