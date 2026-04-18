@@ -32,7 +32,7 @@ hr {
 }
 
 .uploader-placeholder {
-
+  cursor: pointer;
   justify-items: center;
 }
 

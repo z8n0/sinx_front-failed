@@ -17,7 +17,7 @@
   padding: 5px;
   height: 45px;
   width: 200px;
-  background: var(--auth-card-bg);
+  background: var(--auth-surface);
   box-shadow: var(--shadow);
   border: 1px var(--border) solid;
 }
@@ -35,7 +35,7 @@
   padding: 30px;
   border: 1px var(--border) solid;
   border-radius: 8px;
-  background: var(--auth-card-bg);
+  background: var(--auth-surface);
   box-shadow: var(--shadow);
   margin: 0;
 }
@@ -65,7 +65,7 @@
 }
 
 .auth-p {
-  background-color: var(--auth-card-bg);
+  background-color: var(--auth-surface);
   font-family: "Arad";
   direction: rtl;
   z-index: 1;
@@ -130,7 +130,7 @@ input:focus {
 }
 
 .confirm {
-  background-color: var(--btn-bg);
+  background-color: var(--button-bg);
   margin: 30px 0px 10px 0px;
   font-family: "Arad";
   padding: 0;
@@ -139,6 +139,6 @@ input:focus {
 }
 
 .confirm:hover {
-  background: var(--btn-bg-hover);
+  background: var(--button-bg-hover);
   transition: 0.2s;
 }

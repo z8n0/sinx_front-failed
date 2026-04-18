@@ -1,21 +1,87 @@
 ---
-const {SelectedPage = "home"} = Astro.props;
-import HomeWarp from "./warps/HomeWarp.astro"
-import SettingsWarp from "./warps/SettingsWarp.astro"
-import UploadWarp from "./warps/UploadWarp.astro"
+import { ListIcon, XIcon } from "@phosphor-icons/react";
+const { SelectedPage = "home" } = Astro.props;
+import HomeWarp from "./warps/HomeWarp.astro";
+import SettingsWarp from "./warps/SettingsWarp.astro";
+import UploadWarp from "./warps/UploadWarp.astro";
 ---
-<div class="topbar">
-        {SelectedPage == "home" && (
-                <HomeWarp isSelected=true />
-        )}
-        {SelectedPage != "home" && (
-                <HomeWarp />
-        )}
-        {SelectedPage == "upload" && (
-                <UploadWarp isSelected=true />
-        )}
-        {SelectedPage != "upload" && (
-                <UploadWarp/>
-        )}
-        <SettingsWarp />
+
+<button class="mobile-sidebar-toggle" id="mobileSidebarToggle" type="button">
+  <span id="icon-open">
+    <ListIcon size={24} weight="bold" />
+  </span>
+  <span id="icon-close" class="hidden">
+    <XIcon size={24} weight="bold" />
+  </span>
+</button>
+
+<div class="sidebar" id="sidebar">
+  {SelectedPage == "home" ? <HomeWarp isSelected_={true} /> : <HomeWarp />}
+  {SelectedPage == "upload" ? <UploadWarp isSelected_={true} /> : <UploadWarp />}
+  <SettingsWarp />
 </div>
+
+<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sidebar = document.getElementById("sidebar");
+    const toggle = document.getElementById("mobileSidebarToggle");
+    const overlay = document.getElementById("mobileSidebarOverlay");
+
+    const iconOpen = document.getElementById("icon-open");
+    const iconClose = document.getElementById("icon-close");
+
+    let open = false;
+
+    function syncIcon() {
+      if (open) {
+        iconOpen?.classList.add("hidden");
+        iconClose?.classList.remove("hidden");
+      } else {
+        iconOpen?.classList.remove("hidden");
+        iconClose?.classList.add("hidden");
+      }
+    }
+
+    function openSidebar() {
+      sidebar?.classList.add("open");
+      overlay?.classList.add("open");
+      document.body.style.overflow = "hidden";
+      open = true;
+      syncIcon();
+    }
+
+    function closeSidebar() {
+      sidebar?.classList.remove("open");
+      overlay?.classList.remove("open");
+      document.body.style.overflow = "";
+      open = false;
+      syncIcon();
+    }
+
+    toggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      open ? closeSidebar() : openSidebar();
+    });
+
+    overlay?.addEventListener("click", closeSidebar);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSidebar();
+    });
+
+    // اگر خواستی وقتی پنل‌ها باز شدن دکمه هم hide بشه:
+    const settingsPanel = document.getElementById("sp");
+    const observer = new MutationObserver(() => {
+      const hidden = settingsPanel?.classList.contains("panel-setting-hidden");
+      toggle.style.display = hidden ? "flex" : "none";
+      if (!hidden) closeSidebar();
+    });
+
+    if (settingsPanel) {
+      observer.observe(settingsPanel, { attributes: true });
+    }
+
+    syncIcon();
+  });
+</script>

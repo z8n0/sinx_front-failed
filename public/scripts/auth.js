@@ -1,4 +1,4 @@
-const url = "http://5.57.35.169:8000/api/v1/users/register";
+const url = "http://localhost:8000/api/v1/users/register";
 const user = document.getElementById("input-user");
 const password = document.getElementById("input-password");
 const email = "null.@gmail.com";

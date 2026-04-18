@@ -1,0 +1,138 @@
+---
+import { CameraIcon } from "@phosphor-icons/react";
+---
+
+<div class="panel-section" id="section-profile">
+  <h2 class="panel-title">پروفایل</h2>
+  <div class="panel-content-inner">
+    <div class="profile-header">
+      <input type="file" id="bannerUpload" hidden />
+      <div class="profile-banner" id="profileBanner">
+        <img src="/assets/image.png" alt="banner" class="banner-img" />
+        <button class="banner-edit-btn" id="bannerEditBtn" type="button">
+          <CameraIcon size={16} weight="bold" />
+        </button>
+      </div>
+
+      <div class="profile-avatar-wrapper">
+        <input type="file" id="avatarUpload" hidden />
+        <div class="profile-avatar" id="profileAvatar">
+          <img
+            src="/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+            alt="avatar"
+            class="avatar-img"
+          />
+          <button class="avatar-edit-btn" id="avatarEditBtn" type="button">
+            <CameraIcon size={16} weight="bold" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <div class="profile-name-row">
+        <h3 class="profile-displayname" id="profileDisplayName">ruxa</h3>
+        <span class="profile-username" id="profileUserTag">@ruxa</span>
+      </div>
+      <p class="profile-bio" id="profileBioText">دینو کونیه</p>
+    </div>
+
+    <div class="profile-edit-form">
+      <div class="input-group">
+        <label class="input-label">نام نمایشی</label>
+        <input
+          type="text"
+          class="input-field"
+          placeholder="نام نمایشی خود را وارد کنید"
+          id="profile-displayname-input"
+          value="ruxa"
+        />
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">یوزرنیم</label>
+        <div class="input-prefix-wrapper">
+          <span class="input-prefix">@</span>
+          <input
+            type="text"
+            class="input-field with-prefix"
+            placeholder="یوزرنیم"
+            id="profile-username-input"
+            value="ruxa"
+          />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">بیوگرافی</label>
+        <textarea
+          class="input-field textarea-field"
+          placeholder="درباره خودتان بنویسید..."
+          rows="3"
+          id="profile-bio-input"></textarea>
+      </div>
+
+      <button class="btn btn-primary" id="profile-save"> ذخیره تغییرات </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+  const avatarInput = document.getElementById("avatarUpload") as HTMLInputElement | null;
+  const bannerInput = document.getElementById("bannerUpload") as HTMLInputElement | null;
+
+  const avatarImg = document.querySelector(".avatar-img") as HTMLImageElement | null;
+  const bannerImg = document.querySelector(".banner-img") as HTMLImageElement | null;
+
+  const avatarBtn = document.getElementById("avatarEditBtn");
+  const bannerBtn = document.getElementById("bannerEditBtn");
+
+  function isValidImage(file: File) {
+    return file.type.startsWith("image/");
+  }
+
+  function createPreview(file: File) {
+    return URL.createObjectURL(file);
+  }
+
+  let lastAvatarURL: string | null = null;
+  let lastBannerURL: string | null = null;
+
+  avatarInput?.addEventListener("change", (e) => {
+    const file = avatarInput.files?.[0];
+    if (!file || !isValidImage(file)) return;
+
+    if (lastAvatarURL) URL.revokeObjectURL(lastAvatarURL);
+
+    const url = createPreview(file);
+    lastAvatarURL = url;
+
+    if (avatarImg) {
+      avatarImg.src = url;
+    }
+  });
+
+  bannerInput?.addEventListener("change", () => {
+    const file = bannerInput.files?.[0];
+    if (!file || !isValidImage(file)) return;
+
+    if (lastBannerURL) URL.revokeObjectURL(lastBannerURL);
+
+    const url = createPreview(file);
+    lastBannerURL = url;
+
+    if (bannerImg) {
+      bannerImg.src = url;
+    }
+  });
+
+  avatarBtn?.addEventListener("click", () => {
+    avatarInput?.click();
+  });
+
+  bannerBtn?.addEventListener("click", () => {
+    bannerInput?.click();
+  });
+});
+</script>

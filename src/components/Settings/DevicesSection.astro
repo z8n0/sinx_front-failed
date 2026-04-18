@@ -1,0 +1,64 @@
+---
+import { AndroidLogoIcon, AppleLogoIcon, DesktopIcon, DeviceMobileIcon } from "@phosphor-icons/react"
+---
+
+<div class="panel-section" id="section-devices" hidden>
+  <h2 class="panel-title">دستگاه‌ها</h2>
+  <div class="panel-content-inner">
+
+    <div class="device-item" data-device-id="1">
+      <div class="device-icon">
+        <AndroidLogoIcon />
+      </div>
+      <div class="device-info">
+        <span class="device-name">موبایل - Chrome</span>
+        <span class="device-status">
+          <span class="online-dot"></span>
+          فعال اکنون
+        </span>
+      </div>
+      <button class="btn btn-secondary btn-sm device-view-btn">مشاهده</button>
+    </div>
+
+    <div class="device-item" data-device-id="2">
+      <div class="device-icon">
+        <AppleLogoIcon />
+      </div>
+      <div class="device-info">
+        <span class="device-name">تبلت - Safari</span>
+        <span class="device-status">۲ روز پیش</span>
+      </div>
+      <button class="btn btn-secondary btn-sm device-view-btn">مشاهده</button>
+    </div>
+
+    <div class="device-item" data-device-id="3">
+      <div class="device-icon">
+        <DesktopIcon />
+      </div>
+      <div class="device-info">
+        <span class="device-name">دسکتاپ - Firefox</span>
+        <span class="device-status">۱ هفته پیش</span>
+      </div>
+      <button class="btn btn-secondary btn-sm device-view-btn">مشاهده</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const section = document.getElementById("section-devices")
+
+  section?.addEventListener("section:shown", () => {
+    console.log("دستگاه‌ها فعال شد")
+  })
+
+  section?.querySelectorAll(".device-view-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const deviceItem = (btn as HTMLElement).closest(".device-item") as HTMLElement
+      const deviceId = deviceItem?.dataset.deviceId
+      const deviceName = deviceItem?.querySelector(".device-name")?.textContent
+
+      console.log("مشاهده دستگاه:", { deviceId, deviceName })
+    })
+  })
+</script>

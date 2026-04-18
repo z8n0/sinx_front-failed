@@ -1,14 +1,64 @@
 ---
-import { UploadSimpleIcon } from "@phosphor-icons/react"
+import { UploadSimpleIcon } from "@phosphor-icons/react";
 ---
+
 <p class="upload-title">آپلود کن ی چیزی</p>
 <p class="upload-text">مکانی برای اپلود ...</p>
 <hr />
-<div class="uploader-placeholder">
-  <form class="uploader">
-    
-    <UploadSimpleIcon size={48}/>
+<div class="uploader-placeholder" id="dropzone">
+  <input type="file" id="fileInput" hidden />
+  <div class="uploader" id="uploader_area">
+    <UploadSimpleIcon size={48} />
     <p class="uploadzone-text">محل اپلود</p>
-   
-  </form>
+  </div>
+  <span class="icon">📄</span>
+  <p id="fileName">نام فایل</p>
+  <p id="fileSize">حجم فایل</p>
 </div>
+
+<script>
+  const area = document.getElementById("uploader_area");
+  const fileInput = document.getElementById("fileInput");
+  const dropzone = document.getElementById("dropzone");
+  const fileName = document.getElementById("fileName");
+  const fileSize = document.getElementById("fileSize");
+
+  let selectedFile = null;
+  area?.addEventListener("click", () => {
+    fileInput?.click();
+  });
+
+  fileInput?.addEventListener("change", (e: any) => {
+    const file = e.target.files?.[0];
+    if (file) handleFile(file);
+  });
+
+  dropzone?.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropzone.classList.add("dragging");
+  });
+
+  dropzone?.addEventListener("dragleave", (e) => {
+    e.preventDefault();
+    dropzone.classList.remove("dragging");
+  });
+
+  dropzone?.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropzone.classList.remove("dragging");
+    const file = e.dataTransfer?.files?.[0];
+    if (file) handleFile(file);
+  });
+
+  function handleFile(file: any) {
+    selectedFile = file;
+    if (!(fileName == null || fileSize == null)) {
+      fileName.textContent = file.name;
+      fileSize.textContent = file.size;
+    }
+    // inja bayad masalan design ha ke avaz mishe ro anjam bedim
+    // masalan =>
+    // placeholder.hidden = true
+    // filePreview.hidden = false
+  }
+</script>

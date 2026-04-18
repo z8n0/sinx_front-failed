@@ -1,0 +1,55 @@
+---
+import { UserCircleIcon, DeviceMobileIcon, LockKeyIcon } from "@phosphor-icons/react"
+---
+
+<div class="panel-section" id="section-account" hidden>
+  <h2 class="panel-title">اکانت</h2>
+  <div class="panel-content-inner">
+    <div class="input-group">
+      <label class="input-label">پسورد فعلی (در صورتی که قصد تغییر پسوردتون رو ندارید این ورودی را خالی بگذارید.)</label>
+      <input
+        type="password"
+        class="input-field"
+        placeholder="••••••••"
+        id="account-password"
+      />
+      <label class="input-label">پسورد جدید</label>
+      <input
+        type="password"
+        class="input-field"
+        placeholder="••••••••"
+        id="account-password"
+      />
+      <label class="input-label">تکرار پسورد جدید</label>
+      <input
+        type="password"
+        class="input-field"
+        placeholder="••••••••"
+        id="account-password"
+      />
+    </div>
+    <button class="btn btn-primary" id="account-update">به‌روزرسانی</button>
+  </div>
+</div>
+
+<script>
+  const section = document.getElementById("section-account")
+
+  section?.addEventListener("section:shown", () => {
+    console.log("اکانت فعال شد")
+  })
+
+  document.getElementById("account-update")?.addEventListener("click", () => {
+    const email = (
+      document.getElementById("account-email") as HTMLInputElement
+    )?.value
+    const phone = (
+      document.getElementById("account-phone") as HTMLInputElement
+    )?.value
+    const password = (
+      document.getElementById("account-password") as HTMLInputElement
+    )?.value
+
+    console.log("به‌روزرسانی اکانت:", { email, phone, password })
+  })
+</script>

@@ -1,27 +1,200 @@
 ---
-import LightThemeBTN from "./warps/SettingsWarp/LightThemeBTN.astro"
-import DarkThemeBTN from "./warps/SettingsWarp/DarkThemeBTN.astro"
-import { PenIcon } from "@phosphor-icons/react"
+import ProfileSection from "./Settings/ProfileSection.astro";
+import AccountSection from "./Settings/AccountSection.astro";
+import ThemeSection from "./Settings/ThemeSection.astro";
+import DevicesSection from "./Settings/DevicesSection.astro";
+
+import {
+  ArrowLeftIcon,
+  DeviceMobileIcon,
+  DoorOpenIcon,
+  PaletteIcon,
+  SignOutIcon,
+  UserCircleIcon,
+  UserGearIcon,
+  XIcon,
+} from "@phosphor-icons/react";
 ---
+
 <div class="panel-setting panel-setting-hidden" id="sp">
-          <div class="row">
-            <div class="user">
-              <img
-                class="user-av"
-                src="/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
-                alt="avatar" />
-              <span class="user-nm">ruxa</span>
+  <button class="close-btn desktop-only" id="desktopCloseBtn">
+    <XIcon />
+  </button>
+  <div class="settings-container">
+    <aside class="settings-sidebar">
+      <div class="sidebar-header">
+        <img
+          class="sidebar-avatar"
+          src="/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+          alt="avatar"
+        />
+        <span class="sidebar-username">ruxa</span>
+      </div>
 
-              <div class="chengename"><button class="btn-chengename">
-                  <PenIcon size={24} color="var(--text)" />
-                </button>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-section="profile">
+          <UserGearIcon />
+          <span>پروفایل</span>
+        </button>
 
-              </div>
-            </div>
+        <button class="nav-item" data-section="account">
+          <UserCircleIcon />
+          <span>اکانت</span>
+        </button>
 
-            <div class="opts" id="theme-opts">
-              <LightThemeBTN />
-              <DarkThemeBTN />
-            </div>
+        <button class="nav-item" data-section="theme">
+          <PaletteIcon />
+          <span>تم</span>
+        </button>
+
+        <button class="nav-item" data-section="devices">
+          <DeviceMobileIcon />
+          <span>دستگاه‌ها</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="nav-item logout" id="logoutBtn">
+          <SignOutIcon />
+          <span>خروج از حساب</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="settings-panel">
+
+      <div class="mobile-header" id="mobileHeader">
+        <button class="mobile-back-btn" id="mobileBackBtn">
+          <ArrowLeftIcon />
+        </button>
+        <span class="mobile-header-title" id="mobileHeaderTitle">پروفایل</span>
+        <button class="close-btn" id="closeSettingsBtn">
+          <XIcon />
+        </button>
+      </div>
+
+      <div class="mobile-nav-list">
+        <div class="mobile-user-info">
+          <img
+            class="mobile-user-avatar"
+            src="/assets/28e8d5e0-7144-4db6-b753-44e8d3f37e93.png"
+            alt="avatar"
+          />
+          <div>
+            <div class="mobile-user-name">ruxa</div>
+            <div class="mobile-user-tag">@ruxa</div>
           </div>
         </div>
+
+        <button
+          class="mobile-nav-item active"
+          data-section="profile"
+          data-title="پروفایل"
+        >
+          <UserGearIcon />
+          <span>پروفایل</span>
+        </button>
+
+        <button
+          class="mobile-nav-item"
+          data-section="account"
+          data-title="اکانت"
+        >
+          <UserCircleIcon />
+          <span>اکانت</span>
+        </button>
+
+        <button class="mobile-nav-item" data-section="theme" data-title="تم">
+          <PaletteIcon />
+          <span>تم</span>
+        </button>
+
+        <button
+          class="mobile-nav-item"
+          data-section="devices"
+          data-title="دستگاه‌ها"
+        >
+          <DeviceMobileIcon />
+          <span>دستگاه‌ها</span>
+        </button>
+
+        <button class="mobile-nav-item logout" id="mobileLogoutBtn">
+          <SignOutIcon />
+          <span>خروج از حساب</span>
+        </button>
+      </div>
+
+      <!-- بخش‌ها -->
+      <ProfileSection />
+      <AccountSection />
+      <ThemeSection />
+      <DevicesSection />
+    </main>
+  </div>
+</div>
+
+<script>
+  const navItems = document.querySelectorAll(".sidebar-nav .nav-item");
+  const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+  const sections = document.querySelectorAll(".panel-section");
+  const mobileHeaderTitle = document.getElementById("mobileHeaderTitle");
+  const mobileBackBtn = document.getElementById("mobileBackBtn");
+  const closeSettingsBtn = document.getElementById("closeSettingsBtn");
+
+  function switchSection(target: string | null, title: string) {
+    if (!target) return;
+
+    navItems.forEach((n) => n.classList.remove("active"));
+    mobileNavItems.forEach((n) => n.classList.remove("active"));
+
+    document
+      .querySelectorAll(
+        `.nav-item[data-section="${target}"], .mobile-nav-item[data-section="${target}"]`,
+      )
+      .forEach((n) => n.classList.add("active"));
+
+    sections.forEach((s) => ((s as HTMLElement).hidden = true));
+
+    const targetSection = document.getElementById(`section-${target}`);
+    if (targetSection) {
+      targetSection.hidden = false;
+      targetSection.dispatchEvent(new CustomEvent("section:shown"));
+    }
+
+    if (mobileHeaderTitle) {
+      mobileHeaderTitle.textContent = title;
+    }
+  }
+
+  navItems.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const target = btn.getAttribute("data-section");
+      switchSection(target, btn.querySelector("span")?.textContent || "");
+    });
+  });
+
+  mobileNavItems.forEach((btn) => {
+    if (btn.classList.contains("logout")) return;
+    btn.addEventListener("click", () => {
+      const target = (btn as HTMLElement).dataset.section;
+      const title = (btn as HTMLElement).dataset.title || "";
+      switchSection(target, title);
+    });
+  });
+
+  mobileBackBtn?.addEventListener("click", () => {
+    closeSettingsBtn?.click();
+  });
+
+  closeSettingsBtn?.addEventListener("click", () => {
+    document.getElementById("sp")?.classList.add("panel-setting-hidden");
+  });
+
+  document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    console.log("خروج از حساب");
+  });
+
+  document.getElementById("mobileLogoutBtn")?.addEventListener("click", () => {
+    console.log("خروج از حساب");
+  });
+</script>

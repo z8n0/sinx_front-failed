@@ -96,7 +96,6 @@ function CommentSection() {
               ))}
             </div>
             <form className="comment-form" onSubmit={handleSubmit}>
-              {/* <div className="emoji-btn"></div> */}
               <input
                 type="text"
                 placeholder="Add a comment..."

@@ -1,61 +1,34 @@
 document.addEventListener("astro:page-load", () => {
-  function isL() {
-    return document.documentElement.getAttribute("data-theme") !== "dark";
-  }
-
-  const Themes = {
-    DARK: "dark",
-    LIGHT: "light",
-  };
-
-  function setT(t) {
-    document.documentElement.setAttribute("data-theme", t);
-    try {
-      localStorage.setItem("theme", t);
-    } catch (e) {}
-    updateTheme();
-  }
-
-  const darkThemeToggleBTN = document.getElementById("dark-theme-btn");
-  const lightThemeToggleBTN = document.getElementById("light-theme-btn");
-
-  function updateTheme() {
-    const l = isL();
-    
-    lightThemeToggleBTN?.classList.toggle("active", l);
-    darkThemeToggleBTN?.classList.toggle("active", !l);
-  }
-
-  try {
-    const t = localStorage.getItem("theme");
-    if (t) document.documentElement.setAttribute("data-theme", t);
-  } catch (e) {}
-
-  updateTheme();
-
-  darkThemeToggleBTN?.addEventListener("click", () => {
-    setT(Themes.DARK);
-  });
-
-  lightThemeToggleBTN?.addEventListener("click", () => {
-    setT(Themes.LIGHT);
-  });
-
 
   const openSettingsPanelBTN = document.getElementById("open-settings-panel");
   const settingsPanel = document.getElementById("sp");
+  const closeSettingsPanelBTN = document.getElementById("desktopCloseBtn");
 
   let isPanelOpen = false;
 
-  function closePanel() {
-    settingsPanel?.classList.remove("open");
-    isPanelOpen = false;
+  function openPanel() {
+    const panel = document.getElementById("sp");
+    if (!panel) return;
+
+    panel.classList.remove("panel-setting-hidden");
+    isPanelOpen = true;
+
+    document.body.style.overflow = "hidden";
   }
 
-  function openPanel() {
-    settingsPanel?.classList.add("open");
-    isPanelOpen = true;
+  function closePanel() {
+    const panel = document.getElementById("sp");
+    if (!panel) return;
+
+    panel.classList.add("panel-setting-hidden");
+    isPanelOpen = false;
+
+    document.body.style.overflow = "";
   }
+
+  closeSettingsPanelBTN?.addEventListener("click", (e) => {
+    closePanel();
+  });
 
   openSettingsPanelBTN?.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -66,33 +39,35 @@ document.addEventListener("astro:page-load", () => {
     }
   });
 
-  document.addEventListener("click", (e) => {
-    if (isPanelOpen &&
-        !settingsPanel?.contains(e.target) &&
-        !openSettingsPanelBTN?.contains(e.target)) {
+  document.getElementById("sp")?.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) {
       closePanel();
     }
   });
-
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && isPanelOpen) {
       closePanel();
     }
   });
+  const inputs = [
+  {
+    input: document.getElementById("input-user"),
+    label: document.getElementById("label-user"),
+  },
+  {
+    input: document.getElementById("input-password"),
+    label: document.getElementById("label-password"),
+  },
+];
 
+inputs.forEach(({ input, label }) => {
+  input?.addEventListener("focus", () => {
+    label?.classList.add("scale-105", "text-(--button-bg-hover)");
+  });
+
+  input?.addEventListener("blur", () => {
+    label?.classList.remove("scale-105", "text-(--button-bg-hover)");
+  });
 });
 
-  const inputs = [
-    { input: document.getElementById('input-user'), label: document.getElementById('label-user') },
-    { input: document.getElementById('input-password'), label: document.getElementById('label-password') }
-  ];
-
-  inputs.forEach(({ input, label }) => {
-    input?.addEventListener('focus', () => {
-      label?.classList.add('scale-105', 'text-(--btn-bg-hover)');
-    });
-    
-    input?.addEventListener('blur', () => {
-      label?.classList.remove('scale-105', 'text-(--btn-bg-hover)');
-    });
-  });
+});

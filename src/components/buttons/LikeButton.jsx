@@ -18,7 +18,7 @@ function LikeButton() {
       <Heart 
         size={24} 
         weight={liked ? "fill" : "regular"}
-        color={liked ? "#ef4444" : "var(--text2)"}
+        color={liked ? "#ef4444" : "var(--text-muted)"}
       />
       <span className="like-count">0</span>
     </div>

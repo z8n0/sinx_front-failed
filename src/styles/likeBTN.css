@@ -6,7 +6,7 @@
   padding: 4px 8px;
   border-radius: 20px;
   transition: all 0.2s ease;
-  color: var(--text2);
+  color: var(--text-muted);
 }
 
 .like-trigger:hover {

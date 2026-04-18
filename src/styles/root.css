@@ -1,42 +1,98 @@
 :root {
+  /* ================= LAYOUT ================= */
   --bg: #e4e6eb;
-  --card: #fff;
-  --border: #d0d3d9;
-  --border-secendry:rgba(236, 231, 231, 0);
-  --border-focus:#adb0b4;
-  --text: #1a1a1a;
-  --text2: #5c5c5c;
-  --text3: #9a9a9a;
-  --accent: #4a81f8;
-  --btn-bg: #BDB6EC;
-  --btn-bg-hover: #ada6d8;
-  --auth-card-bg:#e0e3e9;
-  --heading: #111;
-  --shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 1px 4px rgba(0, 0, 0, 0.2);
-  --max-w: 470px;
-  --warp-selected-background: #e7e7e7;
-  --upload-border: #2c2c2c;
-  --like-btn-bg: rgb(233, 9, 9);
-  --scrollbar-bg: linear-gradient(#817878, #3f3f3f);
-  --scrollbar-thumb: #2c2c2c;
-  --scrollbar-hover: #a5a9b3;
-}
+  --surface: #ffffff;
+  --surface-elevated: #f8f9fb;
+  --overlay: rgba(255, 255, 255, 0.9);
 
+  /* ================= BORDER ================= */
+  --border: #d0d3d9;
+  --border-muted: rgba(236, 231, 231, 0);
+  --border-focus: #adb0b4;
+
+  /* ================= TEXT ================= */
+  --text: #1a1a1a;
+  --text-muted: #5c5c5c;
+  --text-subtle: #9a9a9a;
+
+  /* ================= BRAND ================= */
+  --primary: #4a81f8;
+  --primary-hover: #3b6fe0;
+  --primary-soft: rgba(74, 129, 248, 0.12);
+
+  /* ================= ACTION ================= */
+  --button-bg: #bdb6ec;
+  --button-bg-hover: #ada6d8;
+
+  /* ================= SURFACES ================= */
+  --auth-surface: #e0e3e9;
+  --heading: #111111;
+  --selection-bg: #e7e7e7;
+
+  /* ================= EFFECTS ================= */
+  --shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+  /* ================= INPUTS ================= */
+  --input-bg: #ffffff;
+  --input-text: #1a1a1a;
+  --input-placeholder: #9a9a9a;
+  --upload-border: #2c2c2c;
+
+  /* ================= STATUS ================= */
+  --danger: rgb(233, 9, 9);
+
+  /* ================= LAYOUT ================= */
+  --max-width: 470px;
+
+  /* ================= SCROLLBAR ================= */
+  --scrollbar-track: #f0f0f0;
+  --scrollbar-thumb: #2c2c2c;
+  --scrollbar-thumb-hover: #a5a9b3;
+}
 [data-theme="dark"] {
+  /* ================= LAYOUT ================= */
   --bg: #080808;
-  --card: #1a1a1a;
+  --surface: #1a1a1a;
+  --surface-elevated: #222222;
+  --overlay: rgba(0, 0, 0, 0.6);
+
+  /* ================= BORDER ================= */
   --border: #2c2c2c;
-  --border-focus:#252424;
-  --upload-border: #d8d8d8;
+  --border-muted: #1f1f1f;
+  --border-focus: #252424;
+
+  /* ================= TEXT ================= */
   --text: #d8d8d8;
-  --text2: #888;
-  --text3: #666;
-  --btn-bg: #575086;
-  --btn-bg-hover: #645c97;
-  --accent: #4a90e2;
-  --auth-card-bg:#363434;
+  --text-muted: #888888;
+  --text-subtle: #666666;
+
+  /* ================= BRAND ================= */
+  --primary: #4a90e2;
+  --primary-hover: #3c7fd1;
+  --primary-soft: rgba(74, 144, 226, 0.15);
+
+  /* ================= ACTION ================= */
+  --button-bg: #575086;
+  --button-bg-hover: #645c97;
+
+  /* ================= SURFACES ================= */
+  --auth-surface: #363434;
   --heading: #f0f0f0;
+  --selection-bg: #303030;
+
+  /* ================= EFFECTS ================= */
   --shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-  --warp-selected-background: #303030;
+  --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.6);
+
+  /* ================= INPUTS ================= */
+  --input-bg: #1a1a1a;
+  --input-text: #d8d8d8;
+  --input-placeholder: #777777;
+  --upload-border: #d8d8d8;
+
+  /* ================= SCROLLBAR ================= */
+  --scrollbar-track: #111111;
+  --scrollbar-thumb: #333333;
+  --scrollbar-thumb-hover: #555555;
 }
