@@ -1,4 +1,4 @@
-document.addEventListener("astro:page-load", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const openSettingsPanelBTN = document.getElementById("open-settings-panel");
   const settingsPanel = document.getElementById("sp");

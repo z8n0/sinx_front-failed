@@ -17,35 +17,41 @@ import UploadWarp from "./warps/UploadWarp.astro";
 
 <div class="sidebar" id="sidebar">
   {SelectedPage == "home" ? <HomeWarp isSelected_={true} /> : <HomeWarp />}
-  {SelectedPage == "upload" ? <UploadWarp isSelected_={true} /> : <UploadWarp />}
+  {
+    SelectedPage == "upload" ? (
+      <UploadWarp isSelected_={true} />
+    ) : (
+      <UploadWarp />
+    )
+  }
   <SettingsWarp />
 </div>
 
 <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
 <script>
-  document.addEventListener("astro:page-load", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
     const toggle = document.getElementById("mobileSidebarToggle");
     const overlay = document.getElementById("mobileSidebarOverlay");
 
     const iconOpen = document.getElementById("icon-open");
     const iconClose = document.getElementById("icon-close");
+    const settingsPanel = document.getElementById("sp");
+
+    if (!toggle || (toggle as any)._bound) return;
+    (toggle as any)._bound = true;
 
     let open = false;
 
     function syncIcon() {
-      if (open) {
-        iconOpen?.classList.add("hidden");
-        iconClose?.classList.remove("hidden");
-      } else {
-        iconOpen?.classList.remove("hidden");
-        iconClose?.classList.add("hidden");
-      }
+      iconOpen?.classList.toggle("hidden", open);
+      iconClose?.classList.toggle("hidden", !open);
     }
 
     function openSidebar() {
       sidebar?.classList.add("open");
       overlay?.classList.add("open");
+      document.body.classList.add("sidebar-open");
       document.body.style.overflow = "hidden";
       open = true;
       syncIcon();
@@ -54,12 +60,13 @@ import UploadWarp from "./warps/UploadWarp.astro";
     function closeSidebar() {
       sidebar?.classList.remove("open");
       overlay?.classList.remove("open");
+      document.body.classList.remove("sidebar-open");
       document.body.style.overflow = "";
       open = false;
       syncIcon();
     }
 
-    toggle?.addEventListener("click", (e) => {
+    toggle.addEventListener("click", (e) => {
       e.stopPropagation();
       open ? closeSidebar() : openSidebar();
     });
@@ -70,15 +77,16 @@ import UploadWarp from "./warps/UploadWarp.astro";
       if (e.key === "Escape") closeSidebar();
     });
 
-    // اگر خواستی وقتی پنل‌ها باز شدن دکمه هم hide بشه:
-    const settingsPanel = document.getElementById("sp");
-    const observer = new MutationObserver(() => {
-      const hidden = settingsPanel?.classList.contains("panel-setting-hidden");
-      toggle.style.display = hidden ? "flex" : "none";
-      if (!hidden) closeSidebar();
-    });
-
+    // فقط یک observer ساده
     if (settingsPanel) {
+      const observer = new MutationObserver(() => {
+        const hidden = settingsPanel.classList.contains("panel-setting-hidden");
+
+        toggle.style.display = hidden ? "flex" : "none";
+
+        if (!hidden) closeSidebar();
+      });
+
       observer.observe(settingsPanel, { attributes: true });
     }
 

@@ -657,6 +657,12 @@ a {
   background: rgba(239, 68, 68, 0.1);
 }
 
+
+body.sidebar-open .mobile-sidebar-toggle {
+  left: auto;
+  left: 100px;
+}
+
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;

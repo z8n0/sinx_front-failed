@@ -2,14 +2,9 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import PostCard from "../components/PostCard.astro";
-import { ClientRouter } from "astro:transitions";
-import SettingsPanel from "../components/SettingsPanel.astro";
 ---
 
 <Layout pageName="Home Page">
-  <head>
-    <ClientRouter />
-  </head>
   <Header SelectedPage="home" />
   <main class="main-content">
     <div class="feeds">

@@ -1,12 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AuthForm from "../components/AuthForm.astro";
-import { ClientRouter } from 'astro:transitions';
 ---
   <Layout pageName="Login/Register">
-       <head>
-      <ClientRouter />
-    </head>
     <main class="auth-main">
         <AuthForm />
   </main>

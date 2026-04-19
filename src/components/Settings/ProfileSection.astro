@@ -75,64 +75,166 @@ import { CameraIcon } from "@phosphor-icons/react";
       <button class="btn btn-primary" id="profile-save"> ذخیره تغییرات </button>
     </div>
   </div>
+
 </div>
-
 <script>
-  document.addEventListener("astro:page-load", () => {
-  const avatarInput = document.getElementById("avatarUpload") as HTMLInputElement | null;
-  const bannerInput = document.getElementById("bannerUpload") as HTMLInputElement | null;
+  import Cropper from "cropperjs";
+  import "cropperjs/dist/cropper.css";
 
-  const avatarImg = document.querySelector(".avatar-img") as HTMLImageElement | null;
-  const bannerImg = document.querySelector(".banner-img") as HTMLImageElement | null;
+  document.addEventListener("DOMContentLoaded", () => {
+    const avatarInput = document.getElementById("avatarUpload");
+    const bannerInput = document.getElementById("bannerUpload");
+    const avatarImg = document.querySelector(".avatar-img");
+    const bannerImg = document.querySelector(".banner-img");
+    const avatarBtn = document.getElementById("avatarEditBtn");
+    const bannerBtn = document.getElementById("bannerEditBtn");
 
-  const avatarBtn = document.getElementById("avatarEditBtn");
-  const bannerBtn = document.getElementById("bannerEditBtn");
+    const cropperModal = document.getElementById("cropperModal");
+    const cropperImage = document.getElementById("cropperImage");
+    const cropperTitle = document.getElementById("cropperTitle");
+    const cropperCancel = document.getElementById("cropperCancel");
+    const cropperClose = document.getElementById("cropperClose");
+    const cropperConfirm = document.getElementById("cropperConfirm");
 
-  function isValidImage(file: File) {
-    return file.type.startsWith("image/");
-  }
+    if (!cropperModal || !cropperImage || !cropperTitle) return;
 
-  function createPreview(file: File) {
-    return URL.createObjectURL(file);
-  }
+    let cropper = null;
+    let currentTarget = "avatar";
+    let objectUrl = null;
 
-  let lastAvatarURL: string | null = null;
-  let lastBannerURL: string | null = null;
+    const CROP_MODES = {
+      avatar: {
+        aspectRatio: 1,
+        title: "ویرایش آواتار",
+        width: 512,
+        height: 512,
+      },
+      banner: {
+        aspectRatio: 6.39 / 1,
+        title: "ویرایش بنر",
+        width: 1280,
+        height: 720,
+      },
+    };
 
-  avatarInput?.addEventListener("change", (e) => {
-    const file = avatarInput.files?.[0];
-    if (!file || !isValidImage(file)) return;
+    function openCropper(mode) {
+      currentTarget = mode;
+      const config = CROP_MODES[mode];
 
-    if (lastAvatarURL) URL.revokeObjectURL(lastAvatarURL);
-
-    const url = createPreview(file);
-    lastAvatarURL = url;
-
-    if (avatarImg) {
-      avatarImg.src = url;
+      cropperTitle.textContent = config.title;
+      cropperModal.classList.add("open");
+      document.body.style.overflow = "hidden";
     }
-  });
 
-  bannerInput?.addEventListener("change", () => {
-    const file = bannerInput.files?.[0];
-    if (!file || !isValidImage(file)) return;
+    function closeCropper() {
+      cropperModal.classList.remove("open");
+      document.body.style.overflow = "";
 
-    if (lastBannerURL) URL.revokeObjectURL(lastBannerURL);
+      if (cropper) {
+        cropper.destroy();
+        cropper = null;
+      }
 
-    const url = createPreview(file);
-    lastBannerURL = url;
-
-    if (bannerImg) {
-      bannerImg.src = url;
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+        objectUrl = null;
+      }
     }
-  });
 
-  avatarBtn?.addEventListener("click", () => {
-    avatarInput?.click();
-  });
+    function initCropper(src, mode) {
+      const config = CROP_MODES[mode];
 
-  bannerBtn?.addEventListener("click", () => {
-    bannerInput?.click();
+      if (cropper) cropper.destroy();
+
+      cropperImage.src = src;
+
+      cropper = new Cropper(cropperImage, {
+        aspectRatio: config.aspectRatio,
+        viewMode: 1,
+        dragMode: "move",
+        autoCropArea: 0.9,
+        background: false,
+      });
+    }
+
+    function applyCrop() {
+      if (!cropper) return;
+
+      const config = CROP_MODES[currentTarget];
+
+      const canvas = cropper.getCroppedCanvas({
+        width: config.width,
+        height: config.height,
+      });
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+
+        const url = URL.createObjectURL(blob);
+
+        if (currentTarget === "avatar" && avatarImg) {
+          avatarImg.src = url;
+        }
+
+        if (currentTarget === "banner" && bannerImg) {
+          bannerImg.src = url;
+        }
+
+        closeCropper();
+      });
+    }
+
+    function handleFile(file, mode) {
+      if (!file) return;
+
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+      objectUrl = URL.createObjectURL(file);
+
+      // ✅ GIF handling
+      if (file.type === "image/gif") {
+        if (mode === "avatar" && avatarImg) {
+          avatarImg.src = objectUrl;
+        }
+
+        if (mode === "banner" && bannerImg) {
+          bannerImg.src = objectUrl;
+        }
+
+        return;
+      }
+
+      // ✅ normal images
+      if (!file.type.startsWith("image/")) return;
+
+      openCropper(mode);
+      initCropper(objectUrl, mode);
+    }
+
+    avatarBtn?.addEventListener("click", () => avatarInput?.click());
+    bannerBtn?.addEventListener("click", () => bannerInput?.click());
+
+    avatarInput?.addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      handleFile(file, "avatar");
+    });
+
+    bannerInput?.addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      handleFile(file, "banner");
+    });
+
+    cropperCancel?.addEventListener("click", closeCropper);
+    cropperClose?.addEventListener("click", closeCropper);
+    cropperConfirm?.addEventListener("click", applyCrop);
+
+    cropperModal
+      .querySelector(".cropper-backdrop")
+      ?.addEventListener("click", closeCropper);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && cropperModal.classList.contains("open")) {
+        closeCropper();
+      }
+    });
   });
-});
 </script>
