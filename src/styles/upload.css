@@ -3,11 +3,11 @@
   overflow: hidden;
 }
 .upload-main {
+  height: 100vh;
   align-items: center;
   user-select: none;
   margin: 50px 0px 0px 0px;
   text-align: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
 }
@@ -16,7 +16,6 @@
   font-family: Pinar;
   font-weight: 800;
   font-size: 35px;
-
 }
 
 .upload-text {
@@ -41,7 +40,7 @@ hr {
   border-radius: 10px;
   border: var(--upload-border) dashed 2PX;
   width: 500px;
-  height: 250px;
+  height: 100000px;
   transition: 0.5s;
   padding: 50px;
   display: flex;
