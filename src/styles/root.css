@@ -4,6 +4,7 @@
   --surface: #ffffff;
   --surface-elevated: #f8f9fb;
   --overlay: rgba(255, 255, 255, 0.9);
+  --sidebar-bg:rgb(173, 176, 180,0.9);
 
   /* ================= BORDER ================= */
   --border: #d0d3d9;

@@ -1,12 +1,12 @@
 ---
-import { ListIcon, XIcon } from "@phosphor-icons/react";
+import { ListIcon, XIcon ,MagnifyingGlassIcon} from "@phosphor-icons/react";
 const { SelectedPage = "home" } = Astro.props;
 import HomeWarp from "./warps/HomeWarp.astro";
 import SettingsWarp from "./warps/SettingsWarp.astro";
 import UploadWarp from "./warps/UploadWarp.astro";
 ---
-
-<button class="mobile-sidebar-toggle" id="mobileSidebarToggle" type="button">
+<div class="sidebar-placeholder"> </div>
+<button class="sidebar-toggle" id="mobileSidebarToggle" type="button">
   <span id="icon-open">
     <ListIcon size={24} weight="bold" />
   </span>
@@ -21,13 +21,14 @@ import UploadWarp from "./warps/UploadWarp.astro";
     SelectedPage == "upload" ? (
       <UploadWarp isSelected_={true} />
     ) : (
-      <UploadWarp />
+      <UploadWarp size={24} weight="bold" class="test-icon"/>
     )
   }
+  <!-- <MagnifyingGlassIcon /> -->
   <SettingsWarp />
 </div>
 
-<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay"></div>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
