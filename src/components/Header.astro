@@ -1,39 +1,62 @@
 ---
-import { ListIcon, XIcon ,MagnifyingGlassIcon} from "@phosphor-icons/react";
+import {
+  ListIcon,
+  XIcon,
+  HouseIcon,
+  UploadIcon,
+  GearIcon,
+  MagnifyingGlass
+} from "@phosphor-icons/react";
 const { SelectedPage = "home" } = Astro.props;
-import HomeWarp from "./warps/HomeWarp.astro";
-import SettingsWarp from "./warps/SettingsWarp.astro";
-import UploadWarp from "./warps/UploadWarp.astro";
+import SettingsWarp from "../components/SettingsPanel.astro";
+
 ---
-<div class="sidebar-placeholder"> </div>
-<button class="sidebar-toggle" id="mobileSidebarToggle" type="button">
+
+ <div class="sidebar-placeholder">
+
+
+
+
+<div class="icon-panel" id="iconPanel">
+  <div class="panel-content">
+     <a href="/?page=home" class="panel-item" class:list={[{ active: SelectedPage === "home" }]}>
+        <HouseIcon size={22} weight="bold" />
+      </a>
+
+  
+      <a href="/?page=upload" class="panel-item" class:list={[{ active: SelectedPage === "upload" }]}>
+        <UploadIcon size={22} weight="bold" />
+      </a>   
+
+      <a href="/?page=search" class="panel-item" class:list={[{ active: SelectedPage === "search" }]}>
+        <MagnifyingGlass size={24} weight="bold" />
+      </a>
+
+      <a  class="panel-item" >
+        <SettingsWarp  /><GearIcon size={22} weight="bold" />
+      </a>
+
+    </div>
+  </div>
+
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="منو">
+  <span class="toggle-icon">
   <span id="icon-open">
     <ListIcon size={24} weight="bold" />
   </span>
-  <span id="icon-close" class="hidden">
+   <span id="icon-close" class="hidden">
     <XIcon size={24} weight="bold" />
   </span>
+  </span>
 </button>
-
-<div class="sidebar" id="sidebar">
-  {SelectedPage == "home" ? <HomeWarp isSelected_={true} /> : <HomeWarp />}
-  {
-    SelectedPage == "upload" ? (
-      <UploadWarp isSelected_={true} />
-    ) : (
-      <UploadWarp size={24} weight="bold" class="test-icon"/>
-    )
-  }
-  <!-- <MagnifyingGlassIcon /> -->
-  <SettingsWarp />
 </div>
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+   document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.getElementById("sidebar");
-    const toggle = document.getElementById("mobileSidebarToggle");
-    const overlay = document.getElementById("mobileSidebarOverlay");
+    const toggle = document.getElementById("sidebarToggle");
+    const overlay = document.getElementById("iconPanel");
 
     const iconOpen = document.getElementById("icon-open");
     const iconClose = document.getElementById("icon-close");
