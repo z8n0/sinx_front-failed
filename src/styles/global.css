@@ -10,6 +10,7 @@
 @import "./loading.css";
 @import "./settings_panel.css";
 @import "./header.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -108,7 +109,21 @@ a {
   overflow: hidden;
 }
 
+.feed-holder {
+  justify-content: center;
+  width: var(--feeds-width);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 4px;
+}
+
+
+
 .feeds {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -117,27 +132,28 @@ a {
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-.feeds::-webkit-scrollbar {
+.feed {
+  direction: rtl;
+  max-width: var(--max-width);
+  bottom: 0;
+
+}
+
+.main-content::-webkit-scrollbar {
   background: var(--scrollbar-track);
   width: 8px;
 }
 
-.feeds::-webkit-scrollbar-thumb {
+.main-content::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
   border-radius: 15px;
 }
 
-.feeds::-webkit-scrollbar-thumb:hover {
+.main-content::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-hover);
   scrollbar-color: var(--scrollbar-hover) var(--scrollbar-track);
 }
 
-.feed {
-  direction: rtl;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0px 0px 32px;
-}
 
 .ch-bar {
   display: flex;
