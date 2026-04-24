@@ -191,10 +191,24 @@ a {
   margin-top: 14px;
 }
 
+.msg-media {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--surface-elevated);
+}
+
 .msg-media img,
 .msg-media video {
   display: block;
+  z-index: 1;
   width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  background: var(--bg-deeper);
+
   user-select: none;
   height: auto;
 }
