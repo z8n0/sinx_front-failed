@@ -46,8 +46,8 @@
   /* ================= transition ================= */
   --transition:0.3;
   /* ================= LAYOUT ================= */
-  --max-width: 380px;
-  --feeds-width: 1150px;
+  --max-width: 400px;
+  --feeds-width: 1210px;
 
   /* ================= SCROLLBAR ================= */
   --scrollbar-track: #f0f0f0;

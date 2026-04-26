@@ -48,7 +48,7 @@
 }
 
 .auth-title {
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 3px;
   text-shadow: var(--shadow);
   font-size: 40px;
@@ -58,11 +58,7 @@
   transition: 0.5s;
 }
 
-.auth-title:hover {
-  transform: scale(102%);
-  text-shadow: var(--shadow);
-  transition: 1s;
-}
+
 
 .auth-p {
   background-color: var(--auth-surface);
@@ -139,6 +135,7 @@ input:focus {
 }
 
 .confirm:hover {
+  transform: translate(0px, 1px);
   background: var(--button-bg-hover);
   transition: 0.2s;
 }

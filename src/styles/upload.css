@@ -1,7 +1,8 @@
-.loading-main{
+.loading-main {
   user-select: none;
   overflow: hidden;
 }
+
 .upload-main {
   height: 100vh;
   align-items: center;
@@ -38,9 +39,8 @@ hr {
 .uploader {
   position: relative;
   border-radius: 10px;
-  border: var(--upload-border) dashed 2PX;
+  border: var(--upload-border) dashed 2px;
   width: 500px;
-  height: 100000px;
   transition: 0.5s;
   padding: 50px;
   display: flex;
@@ -55,6 +55,7 @@ hr {
   box-shadow: var(--shadow);
   background-color: var(--border)
 }
+
 .uploadzone-text {
   font-family: Pinar;
   font-weight: 600;
