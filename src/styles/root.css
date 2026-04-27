@@ -24,7 +24,7 @@
   /* ================= ACTION ================= */
   --button-bg: #bdb6ec;
   --button-bg-hover: #ada6d8;
-
+  --side-button: rgba(138, 138, 145, 0.9);
   /* ================= SURFACES ================= */
   --auth-surface: #e0e3e9;
   --heading: #111111;
@@ -44,7 +44,7 @@
   --danger: rgb(233, 9, 9);
 
   /* ================= transition ================= */
-  --transition:0.3;
+  --transition: 0.3;
   /* ================= LAYOUT ================= */
   --max-width: 400px;
   --feeds-width: 1210px;
@@ -61,6 +61,7 @@
   --surface: #1a1a1a;
   --surface-elevated: #222222;
   --overlay: rgba(0, 0, 0, 0.6);
+  --sidebar-bg: rgba(0, 0, 0, 0.8);
 
   /* ================= BORDER ================= */
   --border: #2c2c2c;
@@ -80,6 +81,7 @@
   /* ================= ACTION ================= */
   --button-bg: #575086;
   --button-bg-hover: #645c97;
+  --side-button: rgba(58, 58, 59, 0.9);
 
   /* ================= SURFACES ================= */
   --auth-surface: #363434;

@@ -1,4 +1,6 @@
 ---
+import LightThemeBTN from "./warps/SettingsWarp/LightThemeBTN.astro"
+import DarkThemeBTN from "./warps/SettingsWarp/DarkThemeBTN.astro"
 import {
   ListIcon,
   XIcon,
@@ -14,41 +16,30 @@ import SettingsWarp from "../components/SettingsPanel.astro";
 
  <div class="sidebar-placeholder">
 
-
-
-
-<div class="icon-panel" id="iconPanel">
-  <div class="panel-content">
-     <a href="/?page=home" class="panel-item" class:list={[{ active: SelectedPage === "home" }]}>
-        <HouseIcon size={22} weight="bold" />
-      </a>
-
+<div class="side-content">   
   
-      <a href="/?page=upload" class="panel-item" class:list={[{ active: SelectedPage === "upload" }]}>
-        <UploadIcon size={22} weight="bold" />
+      <a class="panel-item theme-opts home-side-opts-side">
+        <DarkThemeBTN size={22} weight="bold" />
+      </a>
+  
+      <a href="/upload" class="panel-item home-side-opts" class:list={[{ active: SelectedPage === "upload" }]}>
+        <UploadIcon size={24} weight="bold" />
       </a>   
 
-      <a href="/?page=search" class="panel-item" class:list={[{ active: SelectedPage === "search" }]}>
+      <a href="/" class="panel-item home-opts" class:list={[{ active: SelectedPage === "home" }]}>
+        <HouseIcon size={24} weight="bold" /><span>Home</span>
+      </a>
+      
+      <a href="/search" class="panel-item home-side-opts" class:list={[{ active: SelectedPage === "search" }]}>
         <MagnifyingGlass size={24} weight="bold" />
       </a>
 
-      <a  class="panel-item" >
-        <SettingsWarp  /><GearIcon size={22} weight="bold" />
+      <a  class="panel-item home-side-opts-side" id="open-settings-panel">
+        <SettingsWarp  /><GearIcon size={24} weight="bold" />
       </a>
-
-    </div>
-  </div>
-
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="منو">
-  <span class="toggle-icon">
-  <span id="icon-open">
-    <ListIcon size={24} weight="bold" />
-  </span>
-   <span id="icon-close" class="hidden">
-    <XIcon size={24} weight="bold" />
-  </span>
-  </span>
-</button>
+  
+</div>
+ 
 </div>
 
 
