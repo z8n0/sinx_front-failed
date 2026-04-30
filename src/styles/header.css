@@ -18,7 +18,8 @@
   gap: 5px;
   margin-left: 20px;
   margin-right: 20px;
-
+  position: relative; /* برای کنترل بهتر */
+  transition: all 0.3s ease;
 }
 
 .panel-item:hover {
@@ -96,4 +97,71 @@
   width: 100px;
   height: 40px;
   padding-inline: 16px;
+}
+
+.search-box-wrapper {
+  max-width: 0;
+  opacity: 0;
+ 
+  overflow: hidden;
+  display: flex;
+  direction: ltr;
+  align-items: center;
+  transition: none; 
+}
+
+.side-content.search-open .search-box-wrapper {
+  
+  max-width: 400px;
+  opacity: 1;
+  transition:
+    max-width 0.3s ease-in,
+    opacity 0.25s ease;
+}
+
+.search-input {
+ 
+  width: 300px;
+   margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color, #444);
+  background: var(--input-bg, #111);
+  color: var(--text-color, #fff);
+  font-size: 0.9rem;
+}
+
+.side-content.search-open {
+  justify-content: flex-start;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.side-content.search-open .panel-item {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.side-content.search-open #search-toggle {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+
+
+.side-content.search-open .search-box-wrapper {
+  max-width: 400px; 
+  opacity: 1;
+  
+}
+
+
+.side-content.search-open .panel-item:not(#search-toggle) {
+  display: none;
 }

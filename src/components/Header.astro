@@ -11,82 +11,84 @@ import {
 } from "@phosphor-icons/react";
 const { SelectedPage = "home" } = Astro.props;
 import SettingsWarp from "../components/SettingsPanel.astro";
-
+import SearchPanel from "../components/SearchPanel.astro"
 ---
 
 <!-- TODO: 1. yekari kon vaghti ke ye section entekhab mishe oon bozorg beshe o beshe mesl home. 2. section select shode dige cursor pointer nabashe o nashe use esh dad. 3. toy har panel-item beyn text o icon ye fasele bede. 4. vaghti ye section entekhab mishe text esh biyad. 5. yekam font esho change bede yejorie -->
 
 
- <div class="sidebar-placeholder">
+<div class="sidebar-placeholder">
 
-<div class="side-content">   
- <a
-  class="panel-item home-side-opts-side  "
-  id="open-settings-panel"
-  class:list={[{ active: SelectedPage === "settings" }]}
->
-  <GearIcon size={24} weight="bold" />
-  <span class="panel-label">Settings</span>
-</a>
+  <div class="side-content">
+    <a
+      class="panel-item home-side-opts-side"
+      id="open-settings-panel"
+      class:list={[{ active: SelectedPage === "settings" }]}
+    >
+      <GearIcon size={24} weight="bold" />
+      <span class="panel-label">Settings</span>
+    </a>
 
+    <a
+      href="/upload"
+      class="panel-item home-side-opts"
+      class:list={[{ active: SelectedPage === "upload" }]}
+    >
+      <UploadIcon size={24} weight="bold" />
+      <span class="panel-label">Upload</span>
+    </a>
 
-<a
-  href="/upload"
-  class="panel-item home-side-opts "
-  class:list={[{ active: SelectedPage === "upload" }]}
->
-  <UploadIcon size={24} weight="bold" />
-  <span class="panel-label">Upload</span>
-</a>
+    <a
+      href="/"
+      class="panel-item home-opts"
+      class:list={[{ active: SelectedPage === "home" }]}
+    >
+      <HouseIcon size={24} weight="bold" />
+      <span class="panel-label">Home</span>
+    </a>
 
- <a
-  href="/"
-  class="panel-item home-opts"
-  class:list={[{ active: SelectedPage === "home" }]}
->
-  <HouseIcon size={24} weight="bold" />
-  <span class="panel-label">Home</span>
-</a>
+    <a
+     
+      id="search-toggle"
+      class="panel-item home-side-opts"
+      class:list={[{ active: SelectedPage === "search" }]}
+    >
+      <MagnifyingGlass size={24} weight="bold" />
+      <span class="panel-label">Search</span>
+    </a>
 
+    <a class="panel-item theme-opts home-side-opts-side">
+      <DarkThemeBTN size={22} weight="bold" />
+      <span class="panel-label">Theme</span>
+    </a>
 
-<a
-  href="/search"
-  class="panel-item home-side-opts "
-  class:list={[{ active: SelectedPage === "search" }]}
->
-  <MagnifyingGlass size={24} weight="bold" />
-  <span class="panel-label">Search</span>
-</a>
+    <div class="search-box-wrapper">
+       <SearchPanel / >
+          <button class="close-search-btn" id="close-search">×</button>
+    </div>
+  
+  </div>
 
-<a class="panel-item theme-opts home-side-opts-side">
-  <DarkThemeBTN size={22} weight="bold" />
-  <span class="panel-label">Theme</span>
-</a>
 </div>
+
  
-</div>
-
-
 <script>
-   document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
+    
     const sidebar = document.getElementById("sidebar");
     const toggle = document.getElementById("sidebarToggle");
     const overlay = document.getElementById("iconPanel");
-
     const iconOpen = document.getElementById("icon-open");
     const iconClose = document.getElementById("icon-close");
     const settingsPanel = document.getElementById("sp");
-
-    if (!toggle || (toggle as any)._bound) return;
-    (toggle as any)._bound = true;
-
+   
     let open = false;
-
+    
     function syncIcon() {
       iconOpen?.classList.toggle("hidden", open);
       iconClose?.classList.toggle("hidden", !open);
     }
-
+    
     function openSidebar() {
       sidebar?.classList.add("open");
       overlay?.classList.add("open");
@@ -95,7 +97,7 @@ import SettingsWarp from "../components/SettingsPanel.astro";
       open = true;
       syncIcon();
     }
-
+    
     function closeSidebar() {
       sidebar?.classList.remove("open");
       overlay?.classList.remove("open");
@@ -104,31 +106,76 @@ import SettingsWarp from "../components/SettingsPanel.astro";
       open = false;
       syncIcon();
     }
-
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      open ? closeSidebar() : openSidebar();
-    });
-
+    
+   
+    if (toggle) {
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        open ? closeSidebar() : openSidebar();
+      });
+    }
+    
     overlay?.addEventListener("click", closeSidebar);
-
+    
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeSidebar();
+      if (e.key === "Escape") {
+       
+        if (sidebar?.classList.contains("open")) {
+           closeSidebar();
+        }
+       
+        if (sideContent?.classList.contains("search-open")) {
+           sideContent.classList.remove("search-open");
+           
+           searchInput?.blur();
+        }
+      }
     });
-
-    // فقط یک observer ساده
+   
     if (settingsPanel) {
       const observer = new MutationObserver(() => {
         const hidden = settingsPanel.classList.contains("panel-setting-hidden");
-
-        toggle.style.display = hidden ? "flex" : "none";
-
+        if (toggle) toggle.style.display = hidden ? "flex" : "none";
         if (!hidden) closeSidebar();
       });
-
       observer.observe(settingsPanel, { attributes: true });
     }
-
+    
     syncIcon();
+    
+    const sideContent = document.querySelector(".side-content");
+    const searchToggle = document.getElementById("search-toggle");
+    const searchInput = document.querySelector(".search-input");
+    
+    if (searchToggle && sideContent) {
+      searchToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = sideContent.classList.toggle("search-open");
+        
+       
+        if (isOpen && searchInput) {
+          
+          setTimeout(() => {
+            searchInput.focus();
+          }, 100);
+        } else if (!isOpen) {
+         
+          searchInput?.blur();
+        }
+      });
+    }
+    
+  
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (sideContent && sideContent.classList.contains("search-open")) {
+          sideContent.classList.remove("search-open");
+          searchInput?.blur();
+        }
+      }
+    });
   });
 </script>
+
