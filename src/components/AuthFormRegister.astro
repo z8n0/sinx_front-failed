@@ -2,9 +2,9 @@
 import LightThemeBTN from "./warps/SettingsWarp/LightThemeBTN.astro"
 import DarkThemeBTN from "./warps/SettingsWarp/DarkThemeBTN.astro"
 ---
-<div class="auth-card">
+<div class="auth-card register">
   <form class="auth" action="">
-    <p class="auth-title no-select">Login/Register</p>
+    <p class="auth-title no-select">Register</p>
 
     <p class="auth-p auth-p-user no-select" id="label-user">Username</p>
     <input
@@ -24,8 +24,17 @@ import DarkThemeBTN from "./warps/SettingsWarp/DarkThemeBTN.astro"
       autocomplete="off"
       class="password auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--button-bg-hover) focus:outline-none no-select"
     />
-
+    <p class="auth-p no-select auth-p-confrimpassword" id="label-password">Confrim Password</p>
+     <input
+       maxlength="32"
+       type="password"
+       name=""
+       id="input-password"
+       autocomplete="off"
+       class="password auth-input transition-transform duration-200 focus:scale-105 focus:ring-2 focus:ring-(--button-bg-hover) focus:outline-none no-select"
+     />
     <button class="confirm no-select">Submit</button>
+     <span class="authtext">Do you already have an account ? <a href="#"> sign in</a></span>
   </form>
 </div>
 <div class="auth-opts opts" id="theme-opts">

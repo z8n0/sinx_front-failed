@@ -127,7 +127,7 @@ import SearchPanel from "../components/SearchPanel.astro"
         if (sideContent?.classList.contains("search-open")) {
            sideContent.classList.remove("search-open");
            
-           searchInput?.blur();
+           
         }
       }
     });
@@ -158,11 +158,11 @@ import SearchPanel from "../components/SearchPanel.astro"
         if (isOpen && searchInput) {
           
           setTimeout(() => {
-            searchInput.focus();
+           
           }, 100);
         } else if (!isOpen) {
          
-          searchInput?.blur();
+          
         }
       });
     }
@@ -172,7 +172,7 @@ import SearchPanel from "../components/SearchPanel.astro"
       if (e.key === "Escape") {
         if (sideContent && sideContent.classList.contains("search-open")) {
           sideContent.classList.remove("search-open");
-          searchInput?.blur();
+          
         }
       }
     });
