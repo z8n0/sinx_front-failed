@@ -13,4 +13,4 @@
 برای ران کردن پروژه روی ای پی لوکال
 ``` npm run dev:host ``` یا ```npm run dev --host```
 
-و پروژه روی  ```http://localhost:3000‍‍‍```
+و پروژه روی  ```http://localhost:1234```
